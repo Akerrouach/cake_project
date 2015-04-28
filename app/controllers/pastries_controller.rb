@@ -7,11 +7,12 @@ class PastriesController < ApplicationController
 
   def new
     @shop = current_user.shops.find(params[:shop_id])
-    @pastry = @shop.patries.new
+    @pastry = @shop.pastries.new
   end
 
   def create
-    @pastry = current_user.pastrys.new(pastry_params)
+    @shop = current_user.shops.find(params[:shop_id])
+    @pastry = @shop.pastries.new(pastry_params)
      if @pastry.save
        redirect_to user_pastrys_path(@pastry)
      else

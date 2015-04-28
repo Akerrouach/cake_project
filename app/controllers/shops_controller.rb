@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
@@ -18,7 +18,7 @@ class ShopsController < ApplicationController
       flash[:notice] = "La boutique #{@shop.name} a bien été créee!"
       redirect_to shop_path(@shop)
     else
-      render new
+      render :new
     end
   end
 

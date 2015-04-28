@@ -4,8 +4,8 @@
 <h3>Macarons vous permet de gagner de l'argent en vendant vos pâtisseries.</h3>
 
 <%= simple_form_for @shop do |f| %>
-  <%= f.input :name, inline_label: 'Nom de la boutique' %>
-  <%= f.input :description, inline_label: 'Description de la boutique' %>
-  <%= f.input :preparation_city, inline_label: 'Ville', placeholder:'Paris, Marseille, Lyon...' %>
+  <%= f.input :name, inline_label: 'Nom de la boutique', required: true %>
+  <%= f.input :description, inline_label: 'Description de la boutique', required: true %>
+  <%= f.input :preparation_city, inline_label: 'Ville', placeholder:'Paris, Marseille, Lyon...', required: true %>
   <%= f.button :submit, 'Ouvrir une boutique' %>
 <% end %>
