@@ -1,28 +1,73 @@
 <%= content_for(:title) do %>
-  Home
+  Macaron
 <% end %>
 
 <%= content_for(:description) do %>
-  <%# TODO %>
+  Patisserie entre particuliers, ouvre ta boutique et vend tes macarons, gateaux, cupcakes ou autres délices autour de toi. Le concept : un amateur ou fan de patisserie créer sa boutique en ligne et affiche ses produits, il les proposes ensuite à la commande pour des gourmants. Tu cherches un gateau d'anniversaire, des macarons fait maison et d'autres patisseries, inscrit toi et commande, cherche ou fait toi livré par un particulier.
 <% end %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <h1>Welcome!</h1>
 
-      <h2>This is the homepage</h2>
+<div id="banner">
+  <div class="text-center">
+    <h1>MACARON</h1>
+    <h2>Patisseries entre patissiers amateurs et gourmands</h2>
+  </div>
 
-      <p>
-        Find me in <code>app/views/pages/home.html.erb</code>
-      </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+        <%= render 'shared/searchbar'%>
+      </div>
+    </div>
+  </div>
+</div>
 
-      <p>
-        Thanks to the <a href="https://github.com/thoughtbot/high_voltage">high_voltage</a>
-        gem, if you need more static pages (like <code>/contact</code> or <code>/about-us</code>),
-        just create a file in the <code>app/views/pages</code> folder, the route will be automatically
-        available without you adding any controller or touching the <code>config/routes.rb</code> file!
-      </p>
+<div class="body_home">
+  <div class="container">
+      <div class="row">
+        <h1 class="text-center"> Nos meilleurs patissiers</h1>
+        <div class="col-xs-12 col-sm-4 text-center">
+          <img src="http://placehold.it/200x200">
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+          <img src="http://placehold.it/200x200">
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+          <img src="http://placehold.it/200x200">
+        </div>
+      </div>
+  <div class="container box_black">
+      <div class="row">
+        <h1 class="text-center"> Comment ça marche ?</h1>
+        <div class="col-xs-12 col-sm-2">
+          <img src="http://placehold.it/200x200">
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <p> Blababladbalbalbalablab diadnpiand baiodnzipandpa boabdizoan</p>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <img src="http://placehold.it/200x200">
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <p> Blababladbalbalbalablab diadnpiand baiodnzipandpa boabdizoan</p>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <img src="http://placehold.it/200x200">
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <p> Blababladbalbalbalablab diadnpiand baiodnzipandpa boabdizoan</p>
+        </div>
+      </div>
+  </div>
+  <div class="container">
+      <div class="row text-center">
+        <h1> A propos de nous</h1>
+        <p>
+          Patisserie entre particuliers, ouvre ta boutique et vend tes macarons, gateaux, cupcakes ou autres délices autour de toi. Le concept : un amateur ou fan de patisserie créer sa boutique en ligne et affiche ses produits, il les proposes ensuite à la commande pour des gourmants. Tu cherches un gateau d'anniversaire, des macarons fait maison et d'autres patisseries, inscrit toi et commande, cherche ou fait toi livré par un particulier.
+        </p>
+      </div>
+  </div>
+
     </div>
   </div>
 </div>

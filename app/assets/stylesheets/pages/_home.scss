@@ -1,0 +1,30 @@
+#banner {
+  padding-top: 200px;
+  height: 600px;
+  top: 5px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url(banner.jpg);
+  background-image: cover;
+  color: white
+}
+
+.body_home  {
+
+position: relative;
+
+  .container  {
+    height: 300px;
+    width: 100%;
+  }
+
+  .row  {
+    padding: 10px;
+  }
+
+  .box_black  {
+    background-color: black;
+    color:white;
+  }
+}
