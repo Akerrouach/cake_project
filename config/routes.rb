@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+ # root to: "home#index"
+
+ devise_for :users
+
+  resources :users, only: [:show]
+
+  resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :pastries, only: [:show, :create, :new, :edit, :update, :destroy]
+  end
+
+
+
+
 end
