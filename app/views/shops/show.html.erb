@@ -1,2 +1,53 @@
-<h1>Shops#show</h1>
-<p>Find me in app/views/shops/show.html.erb</p>
+
+<div class="shop-banner">
+
+
+</div>
+
+<div class="shop-description">
+
+  <div class="row">
+
+    <div class="col-xs-4">
+    <% if @shop.picture.exists? %>
+            <%= image_tag @shop.picture.url(:medium), class: "shop-img" %>
+          <% else %>
+            <%= image_tag "http://placehold.it/300x300", class: "shop-img"%>
+        <% end %>
+
+    <% if @shop.user_id == current_user && policy(Pastry).create? %>
+      <%= link_to "Ajouter une pâtisserie", new_shop_pastry_path(@shop), {class: "btn btn-primary"} %>
+    <% end %>
+    </div>
+
+
+    <div class="col-xs-6">
+      <h1>
+        <%= @shop.name %>
+      </h1>
+      <h3>
+        <%= @shop.description %>
+      </h3>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+<div class="shop-pastries">
+
+  <div class="row">
+
+    <% @shop.pastries.each do |pastry| %>
+      <div class="col-xs-4">
+        <%= link_to shop_pastry_path(@shop, @pastry) do %>
+          <%= image_tag @pastry.pastry_pictures.first.picture.url(:medium), class: "shop-img" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

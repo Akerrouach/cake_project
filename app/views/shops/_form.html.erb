@@ -1,0 +1,11 @@
+
+<h2>Créez votre pâtisserie en 3 clics</h2>
+
+<h3>Macarons vous permet de gagner de l'argent en vendant vos pâtisseries.</h3>
+
+<%= simple_form_for @shop do |f| %>
+  <%= f.input :name, inline_label: 'Nom de la boutique' %>
+  <%= f.input :description, inline_label: 'Description de la boutique' %>
+  <%= f.input :preparation_city, inline_label: 'Ville', placeholder:'Paris, Marseille, Lyon...' %>
+  <%= f.button :submit, 'Ouvrir une boutique' %>
+<% end %>
