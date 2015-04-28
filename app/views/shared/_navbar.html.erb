@@ -9,7 +9,10 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <%= image_tag "logo.jpg" %>
+        <%= image_tag "macaron_black.png" %>
+      </a>
+       <a class="navbar-brand" href="/">
+      MACARON
       </a>
     </div>
 
@@ -24,8 +27,13 @@
           </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
-              Profile <span class="caret"></span>
+              <% if current_user.picture.exists? %>
+                 <%= image_tag current_user.picture.url(:thumb), class: "img-avatar" %>
+                 <%= current_user.first_name %> <%= current_user.last_name %> <span class="caret"></span>
+              <% else %>
+                <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
+                Profile <span class="caret"></span>
+              <% end %>
             <% end %>
             <ul class="dropdown-menu" role="menu">
               <li>
@@ -47,14 +55,14 @@
           </li>
         <% else %>
           <li>
-            <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %>
+            <%= link_to t(".sign_up", default: "Inscription"), new_user_registration_path %>
           </li>
           <li>
-            <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
+            <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path %>
           </li>
         <% end %>
         <li>
-          <%= link_to t(".top_call_to_action", default: "Rent your flat"), "#", class: "btn" %>
+          <%= link_to t(".top_call_to_action", default: "Ouvre ta boutique"), "#", class: "btn" %>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
