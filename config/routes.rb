@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :pastries, only: [:show, :create, :new, :edit, :update, :destroy]
+      collection do
+          get 'result', to: "pastries#result_shops"
+        end
   end
 
 

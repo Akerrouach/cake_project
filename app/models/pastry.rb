@@ -1,6 +1,5 @@
 class Pastry < ActiveRecord::Base
-  belongs_to :shop, dependent: :destroy,
-
+  belongs_to :shop, dependent: :destroy
   has_many :pastry_pictures
 
   validates :title, presence: true
