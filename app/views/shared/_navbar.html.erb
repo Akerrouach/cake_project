@@ -27,13 +27,9 @@
           </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <% if current_user.picture.exists? %>
-                 <%= image_tag current_user.picture.url(:thumb), class: "img-avatar" %>
-                 <%= current_user.first_name %> <%= current_user.last_name %> <span class="caret"></span>
-              <% else %>
+
                 <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
                 Profile <span class="caret"></span>
-              <% end %>
             <% end %>
             <ul class="dropdown-menu" role="menu">
               <li>
@@ -62,7 +58,7 @@
           </li>
         <% end %>
         <li>
-          <%= link_to t(".top_call_to_action", default: "Ouvre ta boutique"), "#", class: "btn" %>
+          <%= link_to t(".top_call_to_action", default: "Ouvre ta boutique"), "#", class: "btn btn-warning" %>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
