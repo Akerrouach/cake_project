@@ -15,7 +15,7 @@
             <%= image_tag "http://placehold.it/300x300", class: "shop-img"%>
         <% end %>
 
-    <% if @shop.user_id == current_user && policy(Pastry).create? %>
+    <% if (@shop.user_id == current_user.id) && policy(Pastry).create? %>
       <%= link_to "Ajouter une pâtisserie", new_shop_pastry_path(@shop), {class: "btn btn-primary"} %>
     <% end %>
     </div>
@@ -29,8 +29,6 @@
         <%= @shop.description %>
       </h3>
     </div>
-
-
 
   </div>
 
