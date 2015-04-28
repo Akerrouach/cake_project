@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428131123) do
+
+ActiveRecord::Schema.define(version: 20150428131341)
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +25,9 @@ ActiveRecord::Schema.define(version: 20150428131123) do
     t.datetime "confirmed_at"
     t.string   "state"
     t.string   "unit_volume"
-    t.string   "preparation_address"
-    t.decimal  "longitude"
-    t.decimal  "latitude"
     t.integer  "shop_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "pastries", ["shop_id"], name: "index_pastries_on_shop_id", using: :btree
@@ -54,6 +53,11 @@ ActiveRecord::Schema.define(version: 20150428131123) do
     t.integer  "user_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.text     "description"
+    t.string   "preparation_address"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
+    t.string   "preparation_city"
   end
 
   add_index "shops", ["user_id"], name: "index_shops_on_user_id", using: :btree

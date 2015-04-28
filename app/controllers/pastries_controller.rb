@@ -6,7 +6,8 @@ class PastriesController < ApplicationController
   end
 
   def new
-    @pastry = Pastry.new
+    @shop = current_user.shops.find(params[:shop_id])
+    @pastry = @shop.patries.new
   end
 
   def create
