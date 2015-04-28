@@ -1,11 +1,21 @@
 class PastriesController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [:show]
+
   def index
   end
 
   def new
+    @pastry = Pastry.new
   end
 
   def create
+    @pastry = current_user.pastrys.new(pastry_params)
+     if @pastry.save
+       redirect_to user_pastrys_path(@pastry)
+     else
+       render :new
+     end
   end
 
   def edit
@@ -18,5 +28,19 @@ class PastriesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def result
+
+  end
+
+  private
+
+  def find_pastry
+    @pastry = Pastry.find(params[:id])
+  end
+
+  def pastry_params
+    params.require(:pastry).permit(:description, :price_per_unit, :state, :unit_volume, :preparation_address)
   end
 end
