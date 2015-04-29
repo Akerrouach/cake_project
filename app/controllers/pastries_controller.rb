@@ -43,6 +43,6 @@ class PastriesController < ApplicationController
   end
 
   def pastry_params
-    params.require(:pastry).permit(:title, :description, :price_per_unit, :unit_volume, :preparation_address, :state)
+    params.require(:pastry).permit(:title, :description, :price_per_unit, :picture_1, :unit_volume, :preparation_address, :state)
   end
 end

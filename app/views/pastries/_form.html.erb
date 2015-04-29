@@ -5,6 +5,6 @@
   <%= f.input :unit_volume, collection: 1..12, label: 'Pour combien de personnes ?', placeholder:'4 macarrons, Pour 5 personnes..', required: true %>
   <%= f.input :preparation_address, label: 'Lieu de préparation', placeholder: "25 rue du petit musc", required: true %>
   <p>Ajoute ton image :</p>
-  <p><%= f.file_field :picture %></p>
+  <p><%= f.file_field :picture_1 %></p>
   <%= f.button :submit, 'Ajouter une patisserie', class: "btn btn-success" %>
 <% end %>
