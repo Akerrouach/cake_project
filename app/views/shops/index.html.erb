@@ -1,2 +1,16 @@
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
+<div class="container text-center">
+  <div class="row">
+    <% @shops.each do |shop| %>
+      <div class="col-xs-4">
+        <h2>Boutique : <%= shop.name %></h2>
+        <%= link_to shop_path(shop) do %>
+         <% if shop.picture.exists? %>
+           <%= image_tag shop.picture.url(:thumb), class: "shop-img img-responsive" %>
+         <% else %>
+           <%= image_tag "http://placehold.it/200x200", class: "shop-img"%>
+         <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

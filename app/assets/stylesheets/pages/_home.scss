@@ -1,22 +1,55 @@
-#banner {
-  padding-top: 100px;
-  height: 600px;
-  top: 5px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: url(banner.jpg);
+#pages_home {
+  padding-top: 0px;
+}
+
+#banner-bg-home{
+  position: relative;
+  background-image: image-url('macaron2.jpg');
   background-size: cover;
-  background-position: center;
-  color: white
+  height: 600px;
+  color: white;
+}
+#pages_home .navbar-wagon{
+  margin-bottom: 0px;
 }
 
-#search-box {
-  margin-top: -300px;
+.home-search{
+  z-index: 2;
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 20px;
+  background-color: transparent;
 }
 
+.shops{
+  background-color: #D9EAB3;
+}
 
-.box_black  {
-  background-color: black;
-  color:white;
+.concept{
+  background-color: #EED6D4;
+}
+
+.howto{
+  background-color: #ED8F90;
+}
+
+.pastry-card {
+  margin: 0 auto;
+  border-radius: 5px;
+  color: white;
+  opacity: 0.8;
+  &:hover{
+    transition: all 0.2s ease;
+    opacity: 1;
+    transform: scale(1.01);
+    }
+}
+
+#text-card-padded{
+  padding-top: 10px;
+}
+
+.title-padded {
+  padding-top: 2em;
+  padding-bottom: 4em;
 }

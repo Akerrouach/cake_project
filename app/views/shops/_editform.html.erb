@@ -1,0 +1,15 @@
+<%= simple_form_for @shop do |f| %>
+  <%= f.input :name, inline_label: 'Nom de la boutique', placeholder: "Chez Louise", required: true %>
+  <%= f.input :description, inline_label: 'Description de la boutique',placeholder: "La reine du cup cake", required: true %>
+  <%= f.input :preparation_address, inline_label: 'Adresse', placeholder:'25 rue du petit musc', required: true %>
+  <%= f.input :preparation_zip_code, inline_label: 'Code postal', placeholder:'75100', required: true %>
+  <%= f.input :preparation_city, inline_label: 'Ville', placeholder:'Paris, Marseille, Lyon...', required: true %>
+  <p>Image de la boutique :</p>
+  <p><%= f.file_field :picture %></p>
+  <%= f.button :submit, 'Modifier ma boutique', class: "btn btn-primary" %>
+<% end %>
+
+
+
+
+

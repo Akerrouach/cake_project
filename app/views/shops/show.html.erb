@@ -4,13 +4,27 @@
       <% if @shop.picture.exists? %>
         <%= image_tag @shop.picture.url(:medium), class: "img-responsive" %>
       <% else %>
-         <%= image_tag "http://placehold.it/300x300"%>
+         <%= image_tag "http://placehold.it/200x200", class: "shop-img"%>
       <% end %>
       <hr>
+      <% if @shop.user== current_user %>
+        <%= link_to edit_shop_path(@shop), {class: "btn btn-warning"} do %>
+          <i class="fa fa-pencil-square-o"></i>
+          Editez votre boutique
+        <% end %>
+      <% end %>
+
       <% if @shop.user== current_user %>
         <%= link_to new_shop_pastry_path(@shop), {class: "btn btn-primary"} do %>
           <i class="fa fa-plus"></i>
           Ajouter une pâtisserie
+        <% end %>
+      <% end %>
+
+      <% if @shop.user == current_user %>
+        <%= link_to shop_path(@shop), class: "btn btn-danger", method: :delete do %>
+          <i class="fa fa-pencil-square-o"></i>
+          Supprimez votre boutique
         <% end %>
       <% end %>
     </div>

@@ -30,10 +30,12 @@ class ShopsController < ApplicationController
 
   def update
     @shop.update(shop_params)
+    redirect_to shop_path(@shop)
   end
 
   def destroy
     @shop.destroy
+    redirect_to shops_path
   end
 
   private
@@ -44,7 +46,7 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :description, :preparation_city, :preparation_zip_code, :preparation_address )
+    params.require(:shop).permit(:name, :description, :preparation_city, :preparation_address, :preparation_zip_code, :picture)
   end
 
 end
