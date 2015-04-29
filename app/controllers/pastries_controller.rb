@@ -3,21 +3,25 @@ class PastriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   def index
+    @pastries = policy_scope(Pastry)
   end
 
   def new
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new
+    authorize(@pastry)
   end
 
   def create
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new(pastry_params)
-     if @pastry.save
-       redirect_to user_pastrys_path(@pastry)
-     else
-       render :new
-     end
+    authorize(@pastry)
+
+    if @pastry.save
+      redirect_to user_pastries_path(@pastry)
+    else
+      render :new
+    end
   end
 
   def edit

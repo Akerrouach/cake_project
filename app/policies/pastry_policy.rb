@@ -1,7 +1,6 @@
 class PastryPolicy < ApplicationPolicy
-
   def create?
-    true
+    record.shop.user == user
   end
 
   class Scope < Scope

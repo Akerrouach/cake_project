@@ -10,15 +10,15 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div id="wrapper">
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+<body id="<%= params[:controller]%>_<%= params[:action]%>">
+  <%= render "shared/navbar" %>
+  <%= render "shared/flashes" %>
 
+  <div class="wrapper">
     <%= yield %>
-
-    <%= render "shared/footer" %>
   </div>
+
+  <%= render "shared/footer" %>
   <%= javascript_include_tag :application %>
   <%= yield(:after_js) %>
 
