@@ -1,0 +1,59 @@
+.pastries-img {
+  width:218px;
+  height:163px;
+  position: relative;
+}
+
+.shop-logo {
+  top: 0;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  left: 0;
+  position: absolute;
+}
+
+.pastry-card {
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  position: relative;
+  width:220px;
+  height:233px;
+}
+
+.pastry-details {
+  width:218px;
+  height:68px;
+  position:relative;
+}
+
+.shop-name {
+  font-family: $base-font;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color:black;
+  padding-top:10px;
+  padding-left:10px;
+  text-decoration: none;
+}
+
+.icon-right-container {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: grey;
+  top: 26px;
+  right: 8px;
+}
+
+.icon-right {
+  position: absolute;
+  top: -2px;
+  right:2px;
+  font-size:18px;
+  color:grey;
+}

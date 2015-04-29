@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+source 'https://rails-assets.org'
 
 ruby "2.2.0"
 
@@ -14,6 +15,9 @@ gem "paperclip"
 gem "aws-sdk", "< 2.0"
 gem "omniauth-facebook"
 gem "geocoder"
+gem "gmaps4rails"
+gem "rails-assets-underscore"
+gem "coffee-script"
 
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"

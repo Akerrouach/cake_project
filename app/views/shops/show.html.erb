@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-4 text-center">
       <% if @shop.picture.exists? %>
-        <%= image_tag @shop.picture.url(:medium), class: "shop-img img-responsive" %>
+        <%= image_tag @shop.picture.url(:medium), class: "img-responsive" %>
       <% else %>
          <%= image_tag "http://placehold.it/200x200", class: "shop-img"%>
       <% end %>
@@ -49,7 +49,7 @@
           <% if pastry.picture_1.exists? %>
             <%= image_tag pastry.picture_1.url(:thumb), class: "pastries-img" %>
           <% else %>
-             <%= image_tag "http://placehold.it/100x100", class: "shop-img"%>
+             <%= image_tag "http://placehold.it/100x100", class: "pastries-img"%>
           <% end %>
         <% end %>
       </div>

@@ -1,10 +1,12 @@
 class Shop < ActiveRecord::Base
 
+
+  belongs_to :user, dependent: :destroy
+  has_many :pastries
+
   geocoded_by :address
   after_validation :geocode, if: ->(shop){ shop.preparation_address_changed? || shop.preparation_zip_code_changed? || shop.preparation_city_changed? }
 
-  belongs_to :user
-  has_many :pastries, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true
@@ -17,9 +19,6 @@ class Shop < ActiveRecord::Base
    content_type: /\Aimage\/.*\z/
 
 
-def address
-    "#{preparation_address}, #{preparation_zip_code}, #{preparation_city}"
-  end
 
 end
 
