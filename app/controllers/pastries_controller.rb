@@ -36,10 +36,6 @@ class PastriesController < ApplicationController
   def destroy
   end
 
-  def result
-
-  end
-
   private
 
   def find_pastry
