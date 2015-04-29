@@ -1,8 +1,8 @@
 <%= form_tag(pastries_path, method: :get, class: "form-inline search-size") do %>
   <div class="form-group nested-group">
-      <input type="text" class="form-control" placeholder="Macaron, éclairs... " name="patisserie">
-      <input placeholder="Ville" type="text" placeholder="Paris, Strasbourg, Marseille" name="City" class="form-control">
-      <input placeholder="Date de livraison" type="text" data-provide='datepicker' name="date_starting" class="form-control">
+      <input type="text" class="form-control" placeholder="Macaron, éclairs... " name="item">
+      <input placeholder="Ville" type="text" placeholder="Paris, Strasbourg, Marseille" name="location" class="form-control">
+      <input placeholder="Date de livraison" type="text" data-provide='datepicker' name="delivery-date" class="form-control">
       <input class="btn btn-primary" type="submit" value="Rechercher">
   </div>
 <% end %>
