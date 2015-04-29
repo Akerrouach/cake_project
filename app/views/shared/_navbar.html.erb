@@ -15,6 +15,16 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <% if current_page?('/') == false %>
+          <li>
+            <%= form_tag(pastries_path, method: :get, class: "form-inline search-size padding-left padding-top") do %>
+            <i class="fa fa-search icon-search"></i>
+            <input type="text" class="form-control padding-left" placeholder="Macarons, éclairs... " name="item">
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
