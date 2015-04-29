@@ -4,6 +4,15 @@ class PastriesController < ApplicationController
 
   def index
     @pastries = policy_scope(Pastry)
+    @shops = Shop.where("preparation_city like ?", params[:location])
+    @pastries = []
+    @shops.each do |shop|
+      shop.pastries.each do |pastry|
+        if (pastry.title).match(/#{params[:item]}/).to_s == params[:item]
+          @pastries << pastry
+        end
+      end
+    end
   end
 
   def new
