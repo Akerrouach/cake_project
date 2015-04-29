@@ -5,25 +5,31 @@
  * already a Bootstrap SCSS variable that does the same job
  * ------------------------------------- */
 
-h1 {
-font-family: "Open Sans", "Helvetica", "sans-serif";
-font-size:32px;
-line-height:35px;
-letter-spacing:1px;
+body {
+  padding-top: 71px;
+}
 
+h1 {
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: 1px;
 }
 
 h2 {
-font-family: "Open Sans", "Helvetica", "sans-serif";
-font-size:16px;
-line-height:17px;
-letter-spacing:0px;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 16px;
+  line-height: 17px;
+  letter-spacing: 0px;
 }
 
 h3 {
-font-family: "Open Sans", "Helvetica", "sans-serif";
-font-size:14px;
-line-height:20px;
-letter-spacing:0px;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0px;
 }
 
+.wrapper {
+  min-height: 600px;
+}
