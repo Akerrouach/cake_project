@@ -52,7 +52,10 @@ $navbar-profile-border-width: 2px;
   border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
   min-height: 0;
   transition: background 0.4s ease;
-
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 100%;
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
   .navbar-nav > li > a:focus,

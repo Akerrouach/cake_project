@@ -1,11 +1,55 @@
 // Your footer style
 
 #footer {
-padding: 20px 0px;
-background-color: #1f1f1f;
-border-top: 1px solid #3a3a3a;
-color: #777;
-width: 100%;
-position: absolute;
-bottom: 0px;
+  background-color: #2b2d2e;
+  border-top: 1px solid #3a3a3a;
+  color: #fff;
+  width: 100%;
+  position:absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.link-contrast {
+
+  color: #fff;
+
+  &:hover {
+    color: #cacccd;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+.footer-icon {
+  position: relative;
+  top: 7px;
+}
+
+.footer-icon-container {
+  display: block;
+  height: 36px;
+  width: 36px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+  text-align: center;
+  border-color: rgba(255,255,255,0.2);
+}
+
+
+.row-space-top-2 {
+  margin-top: 12.5px;
+}
+
+.text-muted {
+  color: #82888a;
+}
+
+.padding-bottom {
+  padding-bottom:10px;
 }
