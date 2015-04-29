@@ -3,6 +3,7 @@ class PastriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   def index
+    @pastries = policy_scope(Pastry)
   end
 
   def new
@@ -16,11 +17,11 @@ class PastriesController < ApplicationController
     @pastry = @shop.pastries.new(pastry_params)
     authorize(@pastry)
 
-     if @pastry.save
-       redirect_to user_pastries_path(@pastry)
-     else
-       render :new
-     end
+    if @pastry.save
+      redirect_to user_pastries_path(@pastry)
+    else
+      render :new
+    end
   end
 
   def edit
