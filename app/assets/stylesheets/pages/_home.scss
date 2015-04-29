@@ -1,30 +1,37 @@
+body {
+  min-height: 650px;
+}
+
+#wrapper {
+  padding-top: 71px;
+  min-height: 100%;
+  position: relative;
+}
+
 #banner {
-  padding-top: 200px;
+  padding-top: 100px;
   height: 600px;
   top: 5px;
   right: 0;
   bottom: 0;
   left: 0;
   background-image: url(banner.jpg);
-  background-image: cover;
+  background-size: cover;
+  background-position: center;
   color: white
 }
 
-.body_home  {
+#search-box {
+  margin-top: -300px;
+}
 
-position: relative;
+.container {
+  margin: 0;
+  width: 100%;
+}
 
-  .container  {
-    height: 300px;
-    width: 100%;
-  }
 
-  .row  {
-    padding: 10px;
-  }
-
-  .box_black  {
-    background-color: black;
-    color:white;
-  }
+.box_black  {
+  background-color: black;
+  color:white;
 }
