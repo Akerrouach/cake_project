@@ -4,7 +4,11 @@ class PastriesController < ApplicationController
 
   def index
     @pastries = policy_scope(Pastry)
-    @shops = Shop.where("preparation_city like ?", params[:location])
+    if params[:location] != ""
+      @shops = Shop.where("preparation_city like ?", params[:location])
+    else
+      @shops = Shop.all
+    end
     @pastries = []
     @shops.each do |shop|
       shop.pastries.each do |pastry|
@@ -13,6 +17,10 @@ class PastriesController < ApplicationController
         end
       end
     end
+    @markers = Gmaps4rails.build_markers(@pastries) do |pastry, marker|
+      marker.lat pastry.latitude
+      marker.lng pastry.longitude
+  end
   end
 
   def new
@@ -24,8 +32,10 @@ class PastriesController < ApplicationController
   def create
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new(pastry_params)
+    @pastry.pastry_address = @shop.preparation_address
+    @pastry.pastry_city = @shop.preparation_city
+    @pastry.pastry_zip_code = @shop.preparation_zip_code
     authorize @pastry
-
     if @pastry.save
       redirect_to shop_path(@shop)
     else
@@ -52,6 +62,6 @@ class PastriesController < ApplicationController
   end
 
   def pastry_params
-    params.require(:pastry).permit(:title, :description, :price_per_unit, :picture_1, :unit_volume, :preparation_address, :state)
+    params.require(:pastry).permit(:title, :description, :price_per_unit, :picture_1, :unit_volume, :pastry_address, :state, :pastry_zip_code, :pastry_city)
   end
 end

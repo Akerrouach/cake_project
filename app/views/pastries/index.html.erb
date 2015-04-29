@@ -2,12 +2,49 @@
 
   <div class="row">
     <div class="col-xs-6">
-
+      <div class="row">
+        <% @pastries.each do |pastry| %>
+          <div class="col-xs-3">
+            <div class="pastry-card">
+            <%= link_to shop_path(pastry.shop) do %>
+              <%= image_tag pastry.picture_1.url(:thumb), class: "pastries-img" %>
+              <% if pastry.shop.picture.exists? %>
+                <%= image_tag pastry.shop.picture.url(:thumb), class: "shop-logo" %>
+              <% else %>
+                <%= image_tag "http://placehold.it/72x72", class: "shop-logo"%>
+              <% end %>
+              <% end %>
+              <div class="pastry-details">
+                <p class="shop-name"><%=pastry.shop.name%></p>
+                <%= link_to shop_path(pastry.shop) do %>
+                  <div class="icon-right-container">
+                    <i class="fa fa-angle-right icon-right"></i>
+                  </div>
+                <% end %>
+              </div>
+          </div>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="col-xs-6">
 
-    </div>
+<div id="map" style="width: 100%; height: 600px;"></div>
 
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).on('ready', function() {
+        handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function(){
+          markers = handler.addMarkers(<%= raw @markers.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+      })
+    <% end %>
+  <% end %>
+
+    </div>
   </div>
 </div>
