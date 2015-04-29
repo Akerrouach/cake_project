@@ -9,16 +9,16 @@ class PastriesController < ApplicationController
   def new
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new
-    authorize(@pastry)
+    authorize @pastry
   end
 
   def create
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new(pastry_params)
-    authorize(@pastry)
+    authorize @pastry
 
     if @pastry.save
-      redirect_to user_pastries_path(@pastry)
+      redirect_to shop_path(@shop)
     else
       render :new
     end
@@ -43,6 +43,6 @@ class PastriesController < ApplicationController
   end
 
   def pastry_params
-    params.require(:pastry).permit(:description, :price_per_unit, :state, :unit_volume, :preparation_address)
+    params.require(:pastry).permit(:title, :description, :price_per_unit, :unit_volume, :preparation_address, :state)
   end
 end
