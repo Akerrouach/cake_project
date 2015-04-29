@@ -1,5 +1,4 @@
 class ShopPolicy < ApplicationPolicy
-
   def create?
     true
   end

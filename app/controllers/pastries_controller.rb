@@ -8,13 +8,16 @@ class PastriesController < ApplicationController
   def new
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new
+    authorize(@pastry)
   end
 
   def create
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new(pastry_params)
+    authorize(@pastry)
+
      if @pastry.save
-       redirect_to user_pastrys_path(@pastry)
+       redirect_to user_pastries_path(@pastry)
      else
        render :new
      end
