@@ -6,9 +6,11 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :password, required: true %>
-        <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
+        <%= f.input :first_name, placeholder: 'Prénom', required: true %>
+          <%= f.input :last_name, placeholder: 'Nom', required: true %>
+        <%= f.input :email, placeholder: 'adresse@email.com', required: true, autofocus: true %>
+        <%= f.input :password, placeholder: 'mot de passe', required: true %>
+        <%= f.button :submit, t('.sign_up', default: "Inscription"), class: "btn btn-primary" %>
       <% end %>
 
       <%= render "devise/shared/links" %>
