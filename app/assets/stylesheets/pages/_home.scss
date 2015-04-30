@@ -8,48 +8,59 @@
   background-size: cover;
   height: 600px;
   color: white;
+  marging-top: -71px;
 }
+
 #pages_home .navbar-wagon{
   margin-bottom: 0px;
 }
 
 .home-search{
+  margin-top: 167px;
   z-index: 2;
   position: relative;
-  padding-top: 100px;
+  padding-top: 20px;
   padding-bottom: 20px;
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.6);
 }
 
-.shops{
-  background-color: #D9EAB3;
+#shops{
+  margin: 40px auto;
 }
 
-.concept{
-  background-color: #EED6D4;
+#concept{
+  margin: 40px auto;
 }
 
-.howto{
-  background-color: #ED8F90;
+#howto{
+  margin: 40px auto;
 }
 
 .pastry-card {
+  margin: 20px auto;
+  width: 400px;
   margin: 0 auto;
   border-radius: 5px;
   color: white;
-  opacity: 0.8;
-  &:hover{
+  opacity: 1;
+
+  &:hover {
     transition: all 0.2s ease;
     opacity: 1;
     transform: scale(1.01);
-    }
+  }
+  .img-thumbnail {
+    // max-height: 100%;
+    // overflow: hidden;
+  }
+
 }
 
 #text-card-padded{
-  padding-top: 10px;
+  margin: 20px;
 }
 
 .title-padded {
-  padding-top: 2em;
-  padding-bottom: 4em;
+  padding: 20px;
+  margin-bottom: 20px;
 }

@@ -22,10 +22,15 @@
   background-color: #fff;
   border: 1px solid #d1d1d1;
   position: relative;
+<<<<<<< HEAD:app/assets/stylesheets/pages/_user-show.css
+  width: 220px;
+  /*height:233px;*/
+=======
   width:220px;
   height:233px;
   margin-top:10px;
   margin-bottom:10px;
+>>>>>>> master:app/assets/stylesheets/pages/_results-search.css
 }
 
 .pastry-details {
