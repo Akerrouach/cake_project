@@ -1,8 +1,7 @@
 <%= simple_form_for([@shop, @pastry],  html: { multipart: true }) do |f| %>
   <%= f.input :title, label: 'Nom de la patisserie', placeholder: "Macaron à la fraise", required: true %>
-  <%= f.input :description, label: 'Ingrédients de la patisserie',placeholder: "Oeufs, Farine, sirop de fraise..", required: true %>
-  <%= f.input :price_per_unit, label: "Prix à l'unité", placeholder: "10", required: true %>
-  <%= f.input :unit_volume, collection: 1..12, label: 'Pour combien de personnes ?', placeholder:'4 macarons, Pour 5 personnes..', required: true %>
+  <%= f.input :description, as: :text, label: 'Description de la patisserie :',placeholder: "Ingrédients, quantité, nombre de personnes...", required: true %>
+  <%= f.input :price_per_unit, as: :integer, label: "Prix à l'unité", placeholder: "5", required: true %>
   <p>Ajoute ton image :</p>
   <p><%= f.file_field :picture_1 %></p>
   <%= f.button :submit, 'Ajouter une patisserie', class: "btn btn-success" %>

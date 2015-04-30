@@ -1,0 +1,12 @@
+  <div class="row">
+    <div class="col-xs-12">
+      <%= simple_form_for(@pastry) do |f| %>
+      <%= f.input :unit_volume, as: :integer, input_html: { min: '0', step: 'any' }, label: "Quantité :" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.button :submit, class: "btn btn-primary btn-block", value: "Ajouter au panier" %>
+    </div>
+  </div>
+  <% end %>

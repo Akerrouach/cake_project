@@ -1,5 +1,6 @@
 class PastriesController < ApplicationController
 
+  before_action :find_pastry, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
@@ -52,9 +53,14 @@ class PastriesController < ApplicationController
   end
 
   def show
+    authorize @pastry
   end
 
   def destroy
+    authorize @pastry
+    @shop = @pastry.shop
+    @pastry.destroy
+    redirect_to shop_path(@shop)
   end
 
   private

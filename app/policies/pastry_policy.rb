@@ -3,6 +3,14 @@ class PastryPolicy < ApplicationPolicy
     record.shop.user == user
   end
 
+  def show?
+    true
+  end
+
+  def destroy?
+    user == record.shop.user || user.admin?
+  end
+
   class Scope < Scope
     def resolve
       scope
