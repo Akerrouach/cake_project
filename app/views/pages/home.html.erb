@@ -6,24 +6,20 @@
     </div>
   </div>
   <div class="container-fluid home-search">
-    <%= form_tag pastries_path, method: :get, class: 'form-inline' do %>
-      <div class='text-center'>
-        <div class="form-group">
-          <input type="text" class="form-control" name="item" placeholder="macaron au chocolat, cupcake...">
-        </div>
-        <div class="form-group">
+    <%= form_tag(pastries_path, method: :get, class: "form-inline search-size") do %>
+    <div class="text-center">
+      <div class="form-group nested-group">
+          <input type="text" class="form-control" placeholder="Macarons, éclairs... " name="item">
           <div class="input-daterange input-group" id="datepicker">
-            <input type="text"  data-provide='datepicker' class="input-sm form-control" name="date_delivery" placeholder="Date de livraison" />
+            <input type="text"  data-provide='datepicker' class="input-sm form-control" name="delivery-date" placeholder="Date de livraison">
           </div>
-        </div>
-        <input type="text" class="form-control" name="location" placeholder="Paris, Lyon...">
-        </select>
-        <button type="submit" class="btn btn-success">Search</button>
+          <input id="search_input_autocomplete_location" placeholder="Paris, Lyon..." name="location" class="form-control">
+          <input class="btn btn-success" type="submit" value="Rechercher">
       </div>
-    <% end %>
+    </div>
+<% end %>
   </div>
 </div>
-
 <div class="container-fluid text-center">
   <div class="shops">
     <div class="row">

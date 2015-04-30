@@ -4,8 +4,13 @@ class PastriesController < ApplicationController
 
   def index
     @pastries = policy_scope(Pastry)
+    @location = nil
     if params[:location] != "" && params[:location] != nil
-      @shops = Shop.where("preparation_city like ?", params[:location])
+      @location = params[:location]
+      @shops = []
+      Shop.all.each do |shop|
+        @shops << shop if shop.preparation_address.match(/#{params[:location]}/i).to_s.downcase == params[:location].downcase
+      end
     elsif params[:location] == ""
       @shops = Shop.all
     elsif params[:location] == nil
@@ -35,8 +40,6 @@ class PastriesController < ApplicationController
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new(pastry_params)
     @pastry.pastry_address = @shop.preparation_address
-    @pastry.pastry_city = @shop.preparation_city
-    @pastry.pastry_zip_code = @shop.preparation_zip_code
     authorize @pastry
     if @pastry.save
       redirect_to shop_path(@shop)
