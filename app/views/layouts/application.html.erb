@@ -24,5 +24,14 @@
   <%= javascript_include_tag :application %>
   <%= yield(:after_js) %>
 
+<!-- Include Google Maps JS API -->
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyByTlEpdKA02pnCHjtyfFcp6etO5wC1ibs">
+</script>
+
+<!-- Custom JS code to bind to Autocomplete API -->
+<!-- find it here: https://github.com/lewagon/google-place-autocomplete/blob/gh-pages/autocomplete.js -->
+<!-- We'll detail this file in the article -->
+<script type="text/javascript" src="autocomplete.js"></script>
 </body>
 </html>

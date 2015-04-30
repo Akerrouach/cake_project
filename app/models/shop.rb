@@ -1,13 +1,12 @@
 class Shop < ActiveRecord::Base
 
+  attr_reader :complete_address_shop
 
   belongs_to :user, dependent: :destroy
   has_many :pastries
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :preparation_city, presence: true
-  validates :preparation_zip_code, presence: true
   validates :preparation_address, presence: true
 
    has_attached_file :picture,
@@ -15,8 +14,6 @@ class Shop < ActiveRecord::Base
 
   validates_attachment_content_type :picture,
    content_type: /\Aimage\/.*\z/
-
-
 
 end
 

@@ -4,18 +4,22 @@
     <div class="col-xs-6">
       <div class="row">
         <% @pastries.each do |pastry| %>
-          <div class="col-xs-3">
-            <div class="pastry-card">
+          <div class="col-xs-6">
+            <div class="pastry-box">
             <%= link_to shop_path(pastry.shop) do %>
-              <%= image_tag pastry.picture_1.url(:thumb), class: "pastries-img" %>
+              <%= image_tag pastry.picture_1.url, class: "pastries-img" %>
               <% if pastry.shop.picture.exists? %>
-                <%= image_tag pastry.shop.picture.url(:thumb), class: "shop-logo" %>
+                <%= image_tag pastry.shop.picture.url, class: "shop-logo" %>
               <% else %>
                 <%= image_tag "http://placehold.it/72x72", class: "shop-logo"%>
               <% end %>
               <% end %>
               <div class="pastry-details">
-                <p class="shop-name"><%=pastry.shop.name%></p>
+                <p class="pastry-title"><%=pastry.title%></p>
+                <ul class="list-inline list-unstyled">
+                  <li class="shop-name"><%=pastry.shop.name%></li>
+                  <li class="distance"><%= "| "%><%= (Geocoder::Calculations.distance_between([pastry.latitude, pastry.longitude], @location, :units => :km)).round(1)%><%= "Km"%></li>
+                </ul>
                 <%= link_to shop_path(pastry.shop) do %>
                   <div class="icon-right-container">
                     <i class="fa fa-angle-right icon-right"></i>

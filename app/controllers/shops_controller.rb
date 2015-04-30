@@ -30,6 +30,10 @@ class ShopsController < ApplicationController
 
   def update
     @shop.update(shop_params)
+    @shop.pastries.each do |pastry|
+      pastry.pastry_address = @shop.preparation_address
+      pastry.save
+    end
     redirect_to shop_path(@shop)
   end
 
@@ -46,7 +50,7 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :description, :preparation_city, :preparation_address, :preparation_zip_code, :picture)
+    params.require(:shop).permit(:name, :description, :preparation_address, :picture)
   end
 
 end
