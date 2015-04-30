@@ -1,5 +1,6 @@
 class PastriesController < ApplicationController
 
+  before_action :find_pastry, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
@@ -49,15 +50,26 @@ class PastriesController < ApplicationController
   end
 
   def edit
+    @shop = current_user.shops.find(params[:shop_id])
+    authorize @pastry
   end
 
   def update
+    authorize @pastry
+    @shop = @pastry.shop
+    @pastry.update(pastry_params)
+    redirect_to pastry_path(@pastry)
   end
 
   def show
+    authorize @pastry
   end
 
   def destroy
+    authorize @pastry
+    @shop = @pastry.shop
+    @pastry.destroy
+    redirect_to shop_path(@shop)
   end
 
   private

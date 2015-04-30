@@ -1,2 +1,42 @@
-<h1>Pastries#show</h1>
-<p>Find me in app/views/pastries/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 text-center">
+      <%= image_tag @pastry.picture_1.url(:thumb), class: "pastries-img" %>
+      <hr>
+      <% if @pastry.shop.user == current_user %>
+        <%= link_to edit_shop_pastry_path(@pastry.shop, @pastry), class: "btn btn-primary" do %>
+          <i class="fa fa-pencil-square-o"></i>
+          Editez votre patisserie
+        <% end %>
+      <% end %>
+
+      <% if @pastry.shop.user == current_user %>
+        <%= link_to shop_pastry_path(@pastry.shop, @pastry), class: "btn btn-danger", method: :delete do %>
+          <i class="fa fa-trash-o"></i>
+          Supprimez votre patisserie
+        <% end %>
+      <% end %>
+
+    </div>
+    <div class="col-xs-6">
+      <h1> <strong> <%= @pastry.title %> </strong> </h1>
+      <p> <strong> Description : </strong> <%= @pastry.description %> </p>
+      <p> <strong> Prix à l'unité :</strong> <%= @pastry.price_per_unit %> euros</p>
+    </div>
+    <div class="col-xs-2">
+      <%= render 'basketform' %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+     <div class="col-xs-12 text-center">
+    <h2> Cette patisserie appartient <strong> <%= @pastry.shop.user.first_name %> </strong> à de la boutique <strong> <%= @pastry.shop.name %> </strong></h2>
+    <%= link_to shop_path(@pastry.shop), {class: "btn btn-info"} do %>
+          <i class="fa fa-eye"></i>
+          Voir la boutique
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ class Pastry < ActiveRecord::Base
   geocoded_by :pastry_address
   after_validation :geocode, if: ->(pastry){ pastry.pastry_address_changed? }
 
-  belongs_to :shop, dependent: :destroy
+  belongs_to :shop
   # has_many :pastry_pictures
 
   has_attached_file :picture_1,
@@ -16,5 +16,6 @@ class Pastry < ActiveRecord::Base
   validates :price_per_unit, presence: true
   validates :unit_volume, presence: true
   validates :pastry_address, presence: true
+
 
 end
