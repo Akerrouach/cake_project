@@ -1,7 +1,7 @@
 class Pastry < ActiveRecord::Base
 
   geocoded_by :pastry_address
-  after_validation :geocode, if: ->(pastry){ pastry.pastry_address_changed? || pastry.pastry_zip_code_changed? || pastry.pastry_city_changed? }
+  after_validation :geocode, if: ->(pastry){ pastry.pastry_address_changed? }
 
   belongs_to :shop, dependent: :destroy
   # has_many :pastry_pictures
