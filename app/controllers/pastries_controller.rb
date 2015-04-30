@@ -1,11 +1,17 @@
 class PastriesController < ApplicationController
 
+  before_action :find_pastry, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
     @pastries = policy_scope(Pastry)
+    @location = nil
     if params[:location] != "" && params[:location] != nil
-      @shops = Shop.where("preparation_city like ?", params[:location])
+      @location = params[:location]
+      @shops = []
+      Shop.all.each do |shop|
+        @shops << shop if shop.preparation_address.match(/#{params[:location]}/i).to_s.downcase == params[:location].downcase
+      end
     elsif params[:location] == ""
       @shops = Shop.all
     elsif params[:location] == nil
@@ -35,8 +41,6 @@ class PastriesController < ApplicationController
     @shop = current_user.shops.find(params[:shop_id])
     @pastry = @shop.pastries.new(pastry_params)
     @pastry.pastry_address = @shop.preparation_address
-    @pastry.pastry_city = @shop.preparation_city
-    @pastry.pastry_zip_code = @shop.preparation_zip_code
     authorize @pastry
     if @pastry.save
       redirect_to shop_path(@shop)
@@ -46,15 +50,26 @@ class PastriesController < ApplicationController
   end
 
   def edit
+    @shop = current_user.shops.find(params[:shop_id])
+    authorize @pastry
   end
 
   def update
+    authorize @pastry
+    @shop = @pastry.shop
+    @pastry.update(pastry_params)
+    redirect_to pastry_path(@pastry)
   end
 
   def show
+    authorize @pastry
   end
 
   def destroy
+    authorize @pastry
+    @shop = @pastry.shop
+    @pastry.destroy
+    redirect_to shop_path(@shop)
   end
 
   private

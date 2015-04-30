@@ -1,8 +1,6 @@
 <%= simple_form_for @shop do |f| %>
   <%= f.input :name, label: 'Nom de la boutique', placeholder: "Chez Louise", required: true %>
   <%= f.input :description, label: 'Description de la boutique',placeholder: "La reine du cup cake", required: true %>
-  <%= f.input :preparation_address, label: 'Rue de la boutique', placeholder:'25, rue du Petit Musc', required: true %>
-  <%= f.input :preparation_zip_code, label: 'Code postal de la boutique', placeholder:'75004', required: true %>
-  <%= f.input :preparation_city, label: 'Ville de la boutique', placeholder:'Paris', required: true %>
+  <%= f.input :preparation_address, input_html: {id: "shop_input_autocomplete_address"}, label: 'Addresse de la boutique', placeholder:'25, rue du Petit Musc', required: true %>
   <%= f.button :submit, 'Ouvrir une boutique', class: "btn btn-primary" %>
 <% end %>

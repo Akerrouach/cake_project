@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :pastries, only: [:index]
+  resources :pastries, only: [:index, :show]
 
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :pastries, except: [:index, :show]
