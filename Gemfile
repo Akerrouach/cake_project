@@ -1,3 +1,4 @@
+
 source "https://rubygems.org"
 source 'https://rails-assets.org'
 
@@ -16,6 +17,7 @@ gem "aws-sdk", "< 2.0"
 gem "omniauth-facebook"
 gem "geocoder"
 gem "gmaps4rails"
+gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem "rails-assets-underscore"
 gem "coffee-script"
 

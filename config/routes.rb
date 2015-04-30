@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :pastries, only: [:index, :show]
 
+  resources :pastries, only: [] do
+    resources :shopping_cart_items, only: [:create, :destroy]
+  end
+
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :pastries, except: [:index, :show]
   end

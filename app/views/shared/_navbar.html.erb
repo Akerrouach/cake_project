@@ -29,7 +29,9 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to "#" do %>
-              <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Mes commandes") %>
+              <i class="fa fa-shopping-cart"></i>
+              <%= t(".messages", default: "total") %>
+              <span class="badge"><%= @cart.total_unique_items %> items :<%= @cart.total %>€</span>
             <% end %>
           </li>
           <li class="dropdown">

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   has_many :shops, dependent: :destroy
+  has_many :shopping_carts
 
   # validates :first_name, presence: true
   # validates :last_name, presence: true

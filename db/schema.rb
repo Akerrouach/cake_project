@@ -11,33 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430143928) do
+ActiveRecord::Schema.define(version: 20150430164620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "order_items", force: :cascade do |t|
-    t.integer  "quantity"
-    t.integer  "price_per_unit"
-    t.integer  "pastry_id"
-    t.integer  "order_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
-  add_index "order_items", ["pastry_id"], name: "index_order_items_on_pastry_id", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "total_price"
-    t.date     "delivery_date"
-    t.boolean  "status"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "pastries", force: :cascade do |t|
     t.string   "title"
@@ -73,6 +50,24 @@ ActiveRecord::Schema.define(version: 20150430143928) do
   end
 
   add_index "pastry_pictures", ["pastry_id"], name: "index_pastry_pictures_on_pastry_id", using: :btree
+
+  create_table "shopping_cart_items", force: :cascade do |t|
+    t.integer "owner_id"
+    t.string  "owner_type"
+    t.integer "quantity"
+    t.integer "item_id"
+    t.string  "item_type"
+    t.float   "price"
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.float   "total_price"
+    t.boolean "status"
+    t.date    "delivery_date"
+    t.integer "user_id"
+  end
+
+  add_index "shopping_carts", ["user_id"], name: "index_shopping_carts_on_user_id", using: :btree
 
   create_table "shops", force: :cascade do |t|
     t.string   "name"
@@ -130,10 +125,8 @@ ActiveRecord::Schema.define(version: 20150430143928) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "pastries"
-  add_foreign_key "orders", "users"
   add_foreign_key "pastries", "shops"
   add_foreign_key "pastry_pictures", "pastries"
+  add_foreign_key "shopping_carts", "users"
   add_foreign_key "shops", "users"
 end

@@ -37,6 +37,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_shopping_cart (0.2.2)
+      activerecord (~> 4)
     addressable (2.3.8)
     annotate (2.6.8)
       activerecord (>= 3.2, <= 4.3)
@@ -241,6 +243,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_shopping_cart (~> 0.2.1)
   annotate
   aws-sdk (< 2.0)
   better_errors
