@@ -28,6 +28,7 @@ class PastriesController < ApplicationController
     @markers = Gmaps4rails.build_markers(@pastries) do |pastry, marker|
       marker.lat pastry.latitude
       marker.lng pastry.longitude
+      marker.infowindow render_to_string(partial: "map_box", locals: { pastry: pastry })
   end
   end
 
