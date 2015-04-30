@@ -81,3 +81,7 @@
   color: #666;
   font-size: 10px;
 }
+
+.map-box {
+z-index:1;
+}
