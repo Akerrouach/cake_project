@@ -2,6 +2,11 @@
   width:218px;
   height:163px;
   position: relative;
+  opacity: 1;
+  &:hover{
+    transition: all 0.5s ease;
+    opacity: 0.4;
+    }
 }
 
 .shop-logo {
@@ -13,35 +18,47 @@
   position: absolute;
 }
 
-.pastry-card {
+.pastry-box {
   background-color: #fff;
   border: 1px solid #d1d1d1;
   position: relative;
   width:220px;
   height:233px;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 .pastry-details {
   width:218px;
   height:68px;
   position:relative;
+  padding-top:10px;
+  padding-left:10px;
 }
 
-.shop-name {
-  font-family: $base-font;
+.pastry-title {
+  font-family: Helvetica;
   font-size: 15px;
   line-height: 22px;
   letter-spacing: 0px;
   color:black;
-  padding-top:10px;
-  padding-left:10px;
   text-decoration: none;
+}
+
+.shop-name {
+  color: #FF5151;
+  display: inline-block;
+  font-size: 11px;
+  margin-right: 7px;
+  font-style: normal;
+  font-family: Helvetica;
+  text-transform: capitalize;
 }
 
 .icon-right-container {
   position: absolute;
-  height: 15px;
-  width: 15px;
+  height: 16px;
+  width: 16px;
   border-width: 1px;
   border-style: solid;
   border-radius: 50%;
@@ -56,4 +73,11 @@
   right:2px;
   font-size:18px;
   color:grey;
+}
+
+.distance {
+  line-height: 15px;
+  font-weight: bold;
+  color: #666;
+  font-size: 10px;
 }
