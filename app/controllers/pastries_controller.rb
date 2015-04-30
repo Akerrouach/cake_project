@@ -1,18 +1,20 @@
 class PastriesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
     @pastries = policy_scope(Pastry)
-    if params[:location] != ""
+    if params[:location] != "" && params[:location] != nil
       @shops = Shop.where("preparation_city like ?", params[:location])
-    else
+    elsif params[:location] == ""
+      @shops = Shop.all
+    elsif params[:location] == nil
       @shops = Shop.all
     end
     @pastries = []
     @shops.each do |shop|
       shop.pastries.each do |pastry|
-        if (pastry.title).match(/#{params[:item]}/).to_s == params[:item]
+        if (pastry.title).match(/#{params[:item]}/i).to_s.downcase == params[:item].downcase
           @pastries << pastry
         end
       end
