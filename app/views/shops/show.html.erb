@@ -23,7 +23,7 @@
 
       <% if @shop.user == current_user %>
         <%= link_to shop_path(@shop), class: "btn btn-danger", method: :delete do %>
-          <i class="fa fa-pencil-square-o"></i>
+          <i class="fa fa-trash-o"></i>
           Supprimez votre boutique
         <% end %>
       <% end %>

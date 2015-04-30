@@ -7,6 +7,10 @@ class PastryPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record.shop.user == user
+  end
+
   def destroy?
     user == record.shop.user || user.admin?
   end

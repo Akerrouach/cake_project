@@ -47,9 +47,15 @@ class PastriesController < ApplicationController
   end
 
   def edit
+    @shop = current_user.shops.find(params[:shop_id])
+    authorize @pastry
   end
 
   def update
+    authorize @pastry
+    @shop = @pastry.shop
+    @pastry.update(pastry_params)
+    redirect_to pastry_path(@pastry)
   end
 
   def show

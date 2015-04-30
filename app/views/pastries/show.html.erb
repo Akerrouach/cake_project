@@ -2,6 +2,13 @@
   <div class="row">
     <div class="col-xs-4 text-center">
       <%= image_tag @pastry.picture_1.url(:thumb), class: "pastries-img" %>
+      <hr>
+      <% if @pastry.shop.user == current_user %>
+        <%= link_to edit_shop_pastry_path(@pastry.shop, @pastry), class: "btn btn-primary" do %>
+          <i class="fa fa-pencil-square-o"></i>
+          Editez votre patisserie
+        <% end %>
+      <% end %>
 
       <% if @pastry.shop.user == current_user %>
         <%= link_to shop_pastry_path(@pastry.shop, @pastry), class: "btn btn-danger", method: :delete do %>
