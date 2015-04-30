@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
-
+  before_action :find_cart
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!, unless: :pages_controller?
@@ -31,5 +31,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up)        { |u| u.permit(:email, :first_name, :last_name, :birthday_month, :birthday_day, :birthday_year, :description, :phone_number, :password, :password_confirmation) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :first_name, :last_name, :birthday_month, :birthday_day, :birthday_year, :description, :phone_number, :password, :password_confirmation, :current_password, :picture) }
+  end
+
+  def find_cart
+    if session[:shopping_cart_id]
+      @cart = ShoppingCart.find(session[:shopping_cart_id])
+    else
+      @cart = ShoppingCart.new
+    end
   end
 end
