@@ -38,17 +38,22 @@
 
 .pastry-card {
   margin: 20px auto;
-  height: 500px;
   width: 400px;
   margin: 0 auto;
   border-radius: 5px;
   color: white;
-  opacity: 0.8;
-  &:hover{
+  opacity: 1;
+
+  &:hover {
     transition: all 0.2s ease;
     opacity: 1;
     transform: scale(1.01);
-    }
+  }
+  .img-thumbnail {
+    // max-height: 100%;
+    // overflow: hidden;
+  }
+
 }
 
 #text-card-padded{

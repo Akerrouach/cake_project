@@ -17,8 +17,8 @@
   background-color: #fff;
   border: 1px solid #d1d1d1;
   position: relative;
-  width:220px;
-  height:233px;
+  width: 220px;
+  /*height:233px;*/
 }
 
 .pastry-details {
