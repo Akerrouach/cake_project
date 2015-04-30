@@ -43,15 +43,10 @@
   border-radius: 5px;
   color: white;
   opacity: 1;
-
   &:hover {
     transition: all 0.2s ease;
     opacity: 1;
     transform: scale(1.01);
-  }
-  .img-thumbnail {
-    // max-height: 100%;
-    // overflow: hidden;
   }
 
 }
