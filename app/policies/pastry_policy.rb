@@ -3,10 +3,6 @@ class PastryPolicy < ApplicationPolicy
     record.shop.user == user
   end
 
-  def show?
-    true
-  end
-
   def update?
     record.shop.user == user
   end

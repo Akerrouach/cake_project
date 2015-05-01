@@ -6,13 +6,21 @@ class ShoppingCartItemsController < ApplicationController
     authorize @cart
     @cart.save
     @cart.add(@pastry, @pastry.price_per_unit, 1)
-    # @cart.add(@pastry, @pastry.price_per_unit, params[:shopping_cart_item][:quantity].to_i)
     session[:shopping_cart_id] = @cart.id
-    redirect_to shop_path(@pastry.shop)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
-
+    @cart.user = current_user
+    authorize @cart
+    @cart.save
+    @cart.remove(@pastry, 1)
+    session[:shopping_cart_id] = @cart.id
+      respond_to do |format|
+      format.js
+    end
   end
 
   private
@@ -22,3 +30,4 @@ class ShoppingCartItemsController < ApplicationController
   end
 
 end
+
