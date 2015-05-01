@@ -1,14 +1,9 @@
-#pages_home {
-  padding-top: 0px;
-}
-
-#banner-bg-home{
+#banner{
   position: relative;
   background-image: image-url('macaron2.jpg');
   background-size: cover;
-  height: 600px;
   color: white;
-  marging-top: -71px;
+  margin-top: -10px;
 }
 
 #pages_home .navbar-wagon{
@@ -40,7 +35,7 @@
   margin: 20px auto;
   width: 400px;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 1px;
   color: white;
   opacity: 1;
   &:hover {
