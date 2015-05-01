@@ -24,7 +24,9 @@
       <p> <strong> Prix à l'unité :</strong> <%= @pastry.price_per_unit %> euros</p>
     </div>
     <div class="col-xs-2">
-      <%= render 'basketform' %>
+
+      <%= link_to "Add", add_to_cart_pastry_path(@pastry), remote: true, method: :post, class: "btn btn-primary"%>
+      <%= link_to "Remove", remove_from_cart_pastry_path(@pastry), remote: true, method: :delete, class: "btn btn-danger"%>
     </div>
   </div>
 </div>

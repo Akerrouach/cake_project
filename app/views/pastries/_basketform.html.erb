@@ -1,4 +1,0 @@
-<%= simple_form_for([@pastry, ShoppingCartItem.new]) do |f| %>
-  <%= f.input :quantity, as: :integer, input_html: { min: '0', step: 'any' }, label: "Quantité :" %>
-  <%= f.button :submit, class: "btn btn-primary btn-block", value: "Ajouter au panier" %>
-<% end %>

@@ -9,7 +9,7 @@ $navbar-text-transform: none;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: transparent;
+$navbar-bg: white;
 
 /* -------------------------------------
  * Box model
@@ -40,6 +40,7 @@ $navbar-profile-border-width: 2px;
  * SCSS code
  * ------------------------------------- */
 .navbar-wagon {
+  z-index: 1;
   background: $navbar-bg;
   font-family: $navbar-font-family;
   border: none;
@@ -52,7 +53,7 @@ $navbar-profile-border-width: 2px;
   border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
   min-height: 0;
   transition: background 0.4s ease;
-  position: absolute;
+  position: fixed;
   top: 1px;
   left: 0;
   width: 100%;

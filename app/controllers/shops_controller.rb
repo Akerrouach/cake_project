@@ -23,6 +23,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    authorize @shop
   end
 
   def edit

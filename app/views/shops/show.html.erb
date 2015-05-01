@@ -45,21 +45,11 @@
     <h2>Pastries of <%= @shop.name %></h2>
     <% @shop.pastries.each do |pastry| %>
       <div class="col-xs-4">
-        <%= link_to shop_pastry_path(@shop, pastry) do %>
+        <%= link_to pastry_path(pastry) do %>
           <% if pastry.picture_1.exists? %>
             <%=link_to pastry_path(pastry) do %>
               <%= image_tag pastry.picture_1.url(:thumb), class: "pastries-img" %>
             <% end %>
-
-            <div class="row">
-              <div class="col-xs-6">
-
-                <%= link_to "Remove", add_to_cart_pastry_path(pastry), method: :post, class: "btn btn-primary"%>
-              </div>
-              <div class="col-xs-6">
-                <%= link_to "Remove", remove_from_cart_pastry_path(pastry), method: :delete, class: "btn btn-danger"%>
-              </div>
-            </div>
           <% else %>
             <%=link_to pastry_path(pastry) do %>
               <%= image_tag "http://placehold.it/100x100", class: "pastries-img"%>
@@ -67,6 +57,15 @@
           <% end %>
         <% end %>
       </div>
+      <div class="row">
+              <div class="col-xs-6">
+
+                <%= link_to "Add", add_to_cart_pastry_path(pastry), remote: true, method: :post, class: "btn btn-primary"%>
+              </div>
+              <div class="col-xs-6">
+                <%= link_to "Remove", remove_from_cart_pastry_path(pastry), remote: true, method: :delete, class: "btn btn-danger"%>
+              </div>
+            </div>
     <% end %>
   </div>
 </div>
