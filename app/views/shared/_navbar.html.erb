@@ -30,8 +30,8 @@
           <li>
             <%= link_to "#" do %>
               <i class="fa fa-shopping-cart"></i>
-              <%= t(".messages", default: "total") %>
-              <span class="badge"><%= @cart.total_unique_items %> items :<%= @cart.total %>€</span>
+              <%= t(".messages", default: "Mon panier") %>
+              <span class="badge"><%= @cart.total_unique_items %> produits :<%= @cart.total %>€</span>
             <% end %>
           </li>
           <li class="dropdown">

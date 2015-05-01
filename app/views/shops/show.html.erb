@@ -50,6 +50,16 @@
             <%=link_to pastry_path(pastry) do %>
               <%= image_tag pastry.picture_1.url(:thumb), class: "pastries-img" %>
             <% end %>
+
+            <div class="row">
+              <div class="col-xs-6">
+
+                <%= link_to "Remove", add_to_cart_pastry_path(pastry), method: :post, class: "btn btn-primary"%>
+              </div>
+              <div class="col-xs-6">
+                <%= link_to "Remove", remove_from_cart_pastry_path(pastry), method: :delete, class: "btn btn-danger"%>
+              </div>
+            </div>
           <% else %>
             <%=link_to pastry_path(pastry) do %>
               <%= image_tag "http://placehold.it/100x100", class: "pastries-img"%>
