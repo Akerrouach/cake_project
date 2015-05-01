@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4 text-center">
-      <%= image_tag @pastry.picture_1.url(:thumb), class: "pastries-img" %>
+      <%= image_tag @pastry.picture_1.url(:thumb), class: "pastries-img2" %>
       <hr>
       <% if @pastry.shop.user == current_user %>
         <%= link_to edit_shop_pastry_path(@pastry.shop, @pastry), class: "btn btn-primary" do %>
