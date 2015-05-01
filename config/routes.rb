@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :pastries, only: [:index, :show]
 
   resources :pastries, only: [] do
-    resources :shopping_cart_items, only: [:create, :destroy]
+    member do
+      delete "remove", to: "shopping_cart_items#destroy", as: :remove_from_cart
+      post "add", to: "shopping_cart_items#create", as: :add_to_cart
+    end
   end
 
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
