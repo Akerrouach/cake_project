@@ -30,6 +30,7 @@ class ShopsController < ApplicationController
   end
 
   def update
+    authorize @shop
     @shop.update(shop_params)
     @shop.pastries.each do |pastry|
       pastry.pastry_address = @shop.preparation_address
@@ -39,6 +40,7 @@ class ShopsController < ApplicationController
   end
 
   def destroy
+    authorize @shop
     @shop.destroy
     redirect_to shops_path
   end
