@@ -8,16 +8,17 @@
   font: lighter 18px Helvetica;
   height:40px;
   width:220px;
-  margin-bottom: 0px;
+  margin-bottom: -22px;
+  position: relative;
   }
 
   .number-items {
 
   background: #FF5151;
   color: #FFF;
-  position: absolute;
-  top: 8px;
-  right: 7px;
+  position: relative;
+  top: -9px;
+  right: -180px;
   padding: 4px 8px;
   font-style: normal;
   font-size: 14px;
@@ -71,11 +72,12 @@
     font-size: 19px;
     width: 100%;
     text-align: center;
-    height:57px;
+    height:42px;
     width:220px;
     background:#F3F3F3;
     color:black;
     border:none;
+    margin-bottom: 10px;
     }
   }
 

@@ -1,20 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <% if current_user.picture.exists? %>
-          <%= image_tag @user.picture.url(:medium), class: "img-size" %> <br><br>
-        <% else %>
-          <%= image_tag "http://placehold.it/300x300"%> <br><br>
-      <% end %>
-      <%= link_to "Modifier le profil", edit_user_registration_path(current_user)%>
-    </div>
+<div class="user-profil">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <% if current_user.picture.exists? %>
+            <%= image_tag @user.picture.url(:medium), class: "profil-img" %>
+          <% else %>
+            <%= image_tag "http://placehold.it/300x300", class: "profil-img"%>
+        <% end %>
+      </div>
 
-    <div class="col-md-8">
-      <h2>Bonjour, je m'appelle <%= @user.first_name %> !</h2>
-      <br>
-      <p> <strong>Membre depuis : </strong> <%= @user.created_at %> </p>
-      <p><strong>A propos de moi : </strong></p>
-      <p><%= @user.description %></p>
+      <div class="col-xs-8">
+        <h2>Bonjour, je m'appelle <%= @user.first_name %> !</h2>
+        <p><%= link_to "Modifier le profil", edit_user_registration_path(current_user), class: "link"%></p>
+        <p><%= @user.description %></p>
+      </div>
     </div>
   </div>
 </div>

@@ -4,4 +4,9 @@ $(document).ready(function() {
     $(this).addClass("active-sommaire");
   });
 
+  $(".popover-img").popover({
+    html: true,
+    trigger: "hover"
+  });
+
 });

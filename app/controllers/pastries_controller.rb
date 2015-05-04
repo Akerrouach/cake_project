@@ -59,7 +59,7 @@ class PastriesController < ApplicationController
     authorize @pastry
     @shop = @pastry.shop
     @pastry.update(pastry_params)
-    redirect_to pastry_path(@pastry)
+    redirect_to shop_path(@shop)
   end
 
   def destroy

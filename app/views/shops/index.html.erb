@@ -7,7 +7,7 @@
       <% @shops.each do |shop| %>
         <% number = number + 1 %>
         <div class="col-xs-3">
-          <div class="pastry-box text-center">
+          <div class="shop-box text-center">
             <%= link_to shop_path(shop) do %>
               <% if shop.picture.exists? %>
                 <%= image_tag shop.picture.url, class: "pastries-img" %>
@@ -18,8 +18,12 @@
             <div class="pastry-details">
               <p class="pastry-title"><span class="number">nº <%= number %><%=" "%></span><%= shop.name%></p>
               <ul class="list-inline list-unstyled">
-                <li class="shop-name">
-                  <%=shop.description.slice(0,1).capitalize + shop.description.slice(1..-1)%>
+                <li class="shop-description">
+                  <% if shop.description.length > 30 %>
+                    <%=shop.description.slice(0,1).capitalize + shop.description.slice(1..30).downcase %><%="..."%>
+                  <% else %>
+                    <%=shop.description.slice(0,1).capitalize + shop.description.slice(1..-1).downcase %>
+                  <% end %>
                 </li>
               </ul>
               <%= link_to shop_path(shop) do %>
