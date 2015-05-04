@@ -44,8 +44,14 @@
                 <% end %>
               </li>
               <li>
+              <li>
+                <%= link_to shop_shopping_carts_path(current_user) do %>
+                  <i class="fa fa-shopping-cart"></i>  <%= t ".commandes", default: "Mes commandes" %>
+                <% end %>
+              </li>
+              <li>
                 <%= link_to shops_path do %>
-                  <i class="fa fa-home"></i>  <%= t ".profile", default: "Mes boutiques" %>
+                  <i class="fa fa-home"></i>  <%= t ".boutiques", default: "Mes boutiques" %>
                 <% end %>
               </li>
               <li>
