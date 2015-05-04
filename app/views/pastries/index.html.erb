@@ -12,11 +12,6 @@
                 <% else %>
                   <%= image_tag "http://placehold.it/218x163", class: "pastries-img"%>
                 <% end %>
-                <% if pastry.shop.picture.exists? %>
-                  <%= image_tag pastry.shop.picture.url, class: "shop-logo" %>
-                <% else %>
-                  <%= image_tag "http://placehold.it/72x72", class: "shop-logo"%>
-                <% end %>
               <% end %>
               <div class="pastry-details">
                 <p class="pastry-title"><%=pastry.title.slice(0,1).capitalize + pastry.title.slice(1..-1)%></p>

@@ -10,7 +10,7 @@
     <div class="text-center">
       <div class="form-group nested-group">
           <input type="text" class="form-control" placeholder="Macarons, éclairs... " name="item">
-          <input type="text"  data-provide='datepicker' class="input-sm form-control" name="delivery-date" placeholder="Date de livraison">
+          <input type="text"  data-provide='datepicker' class="form-control" name="delivery-date" placeholder="Date de livraison">
           <input id="search_input_autocomplete_location" placeholder="Paris, Lyon..." name="location" class="form-control">
           <input class="btn btn-success" type="submit" value="Rechercher">
       </div>
@@ -23,25 +23,46 @@
 <div class="container-fluid" id="presentation">
   <div class="row">
     <div class="title-padded text-center"><h2>Notre fonctionnement</h2></div>
-    <div class="text-center">
-      <div class="col-xs-12 col-sm-6 col-lg-4">
+
+      <ul class="step">
+
+        <li>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="img-step">
             <%=image_tag("search.png") %>
-            <h3><strong>Entrez et choisissez</strong></h3> <br>
+          </div>
+          <div class="cont clearfix">
+            <h3><strong>Entrez et choisissez</strong></h3>
             <p>Choisissez vos douceurs parmi notre sélection des meilleurs pâtisseries.</p>
-      </div>
+          </div>
+        </div>
+        </li>
 
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-          <%=image_tag("cake.png") %>
-          <h3><strong>Commandez</strong></h3> <br>
-          <p>Les produits sont réalisés à la date que vous souhaitez.</p>
-      </div>
+        <li>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="img-step">
+            <%=image_tag("cake.png") %>
+          </div>
+          <div class="cont clearfix">
+            <h3><strong>Commandez</strong></h3>
+            <p>Les produits sont réalisés à la date que vous souhaitez.</p>
+          </div>
+        </div>
+        </li>
 
-      <div class="col-xs-12 col-sm-6 col-lg-4">
+        <li>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="img-step">
             <%=image_tag("meet.png") %>
-            <h3><strong>C'est prêt!</strong></h3> <br>
+          </div>
+          <div class="cont clearfix">
+            <h3><strong>C'est prêt!</strong></h3>
             <p>Recevez votre livraison chez vous ou aller la chercher chez votre voisin pâtissier!</p>
           </div>
         </div>
+        </li>
+
+      </ul>
     </div>
   </div>
 </div>

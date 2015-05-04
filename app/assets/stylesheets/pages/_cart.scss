@@ -1,0 +1,104 @@
+.cart {
+  p {
+  background: #191919;
+  border: 1px solid #191919;
+  color: #fff;
+  height: 18px;
+  padding: 10px;
+  font: lighter 18px Helvetica;
+  height:40px;
+  width:220px;
+  margin-bottom: 0px;
+  }
+
+  .number-items {
+
+  background: #FF5151;
+  color: #FFF;
+  position: absolute;
+  top: 8px;
+  right: 7px;
+  padding: 4px 8px;
+  font-style: normal;
+  font-size: 14px;
+  border-radius:100%;
+
+  }
+
+ .item {
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  color: #333;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px;
+  background:#E5E5E5;
+  height:50px;
+  width:220px;
+}
+
+  .quantity {
+
+  color: #FF5151;
+  font-size: 12px;
+  font-weight: lighter;
+  float: left;
+  width: 20px;
+
+  }
+
+  .name {
+
+  float: left;
+  width: 90px;
+  font-size: 12px;
+  font-weight: lighter;
+
+  }
+
+  .price {
+
+  float: left;
+  text-align: right;
+  width: 50px;
+  font-size: 12px;
+  font-weight: lighter;
+
+  }
+
+  .totalCart {
+    p {
+    font-size: 19px;
+    width: 100%;
+    text-align: center;
+    height:57px;
+    width:220px;
+    background:#F3F3F3;
+    color:black;
+    border:none;
+    }
+  }
+
+  .buttonSend {
+    background: #FF5151;
+    padding: 12px 33px 12px 3px;
+    color: #fff;
+    text-align: center;
+    font-weight: lighter;
+    height:42px;
+    width:220px;
+    border:none;
+    margin-top: -11px;
+
+  }
+}
+
+.quantityButtons {
+  position: relative;
+  right: -180px;
+  top: -36px;
+  width: 30px;
+  font-size: 15px;
+  line-height: 17px;
+  text-decoration:none;
+}

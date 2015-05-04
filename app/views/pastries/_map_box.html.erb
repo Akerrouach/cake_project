@@ -1,9 +1,9 @@
-<div id="map_box">
+<div>
   <%= link_to shop_path(pastry.shop) do %>
     <% if pastry.picture_1.exists? %>
-      <%= image_tag pastry.picture_1.url, class: "pastries-img" %>
+      <%= image_tag pastry.picture_1.url, class: "pastries-img-map" %>
       <% else %>
-        <%= image_tag "http://placehold.it/218x163", class: "pastries-img"%>
+        <%= image_tag "http://placehold.it/218x163", class: "pastries-img-map"%>
     <% end %>
   <% end %>
   <div class="pastry-details">
