@@ -9,3 +9,11 @@ function initializeAutocomplete(id) {
     google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
   }
 }
+
+// JS DatePicker
+
+ $(document).ready(function(){
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+    });
+  });
