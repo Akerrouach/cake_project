@@ -10,7 +10,7 @@
     </TR>
     <% @shopping_carts.each do |cart| %>
       <TR>
-        <TD> <%= cart.created_at ? l(cart.created_at.to_date, format: :test) : "no date" %>  </TD>
+        <TD> <%= cart.created_at ? l(cart.created_at.to_date, format: :test) : "no date" %> </TD>
         <TD> <%= cart.shop.name %></TD>
         <TD>
           <ul>
