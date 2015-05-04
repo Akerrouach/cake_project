@@ -1,16 +1,38 @@
-<div class="container text-center">
+<div class="container">
   <div class="row">
-    <% @shops.each do |shop| %>
-      <div class="col-xs-4">
-        <h2>Boutique : <%= shop.name %></h2>
-        <%= link_to shop_path(shop) do %>
-         <% if shop.picture.exists? %>
-           <%= image_tag shop.picture.url(:thumb), class: "shop-img img-responsive" %>
-         <% else %>
-           <%= image_tag "http://placehold.it/200x200", class: "shop-img"%>
-         <% end %>
-        <% end %>
-      </div>
+    <% number = 0 %>
+    <% if @shops.empty? %>
+      <h3><%= "Vous n'avez pas encore de boutiques." %></h3>
+    <% else %>
+      <% @shops.each do |shop| %>
+        <% number = number + 1 %>
+        <div class="col-xs-3">
+          <div class="pastry-box text-center">
+            <%= link_to shop_path(shop) do %>
+              <% if shop.picture.exists? %>
+                <%= image_tag shop.picture.url, class: "pastries-img" %>
+              <% else %>
+                <%= image_tag "http://placehold.it/218x163", class: "pastries-img"%>
+              <% end %>
+            <% end %>
+            <div class="pastry-details">
+              <p class="pastry-title"><span class="number">nº <%= number %><%=" "%></span><%= shop.name%></p>
+              <ul class="list-inline list-unstyled">
+                <li class="shop-name">
+                  <%=shop.description.slice(0,1).capitalize + shop.description.slice(1..-1)%>
+                </li>
+              </ul>
+              <%= link_to shop_path(shop) do %>
+                <div class="icon-right-container">
+                  <i class="fa fa-angle-right icon-right"></i>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+

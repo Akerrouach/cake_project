@@ -41,7 +41,13 @@ h3 {
 
 
 #pastries-shop {
-  margin-left:80px
+  margin-left:80px;
+  .breadcrumb {background: white; border: white; border-radius: 0px; display: block;}
+  .breadcrumb a {color: black}
+  .breadcrumb>li+li:before {
+  color: black;
+  content: "\007C\00a0";
+}
 }
 
 .sommaire-shop {
@@ -132,4 +138,28 @@ box-shadow: 0px 1px 4px #E4E4E4;
   }
 }
 
+.link {
+    font-size: 13px;
+    color:black;
+    text-decoration:none;
+  }
 
+.header-pastries {
+  margin-top: -29px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+  color:black;
+  text-decoration: underline;
+  }
+}
+
+.buttons {
+  position: absolute;
+  top: 4px;
+  right: 7px;
+}

@@ -7,6 +7,9 @@
   font-size: 35px;
   text-transform: uppercase;
   text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.11);
+  h2 {
+      line-height: 40px;
+  }
 }
 
 #pages_home .navbar-wagon{
@@ -26,6 +29,8 @@
   margin: 40px auto;
   h2 {
     font-size:30px;
+    line-height: 40px;
+
   }
 }
 
@@ -99,5 +104,13 @@ li {
 }
 }
 
+@media (max-width:1000px){
+
+.step {
+
+  width: 1000px;
+}
+
+}
 
 
