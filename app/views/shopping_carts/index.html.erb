@@ -1,8 +1,8 @@
 <div class="container">
-    <TABLE border="1" class="table table-striped table-hover">
+    <TABLE class="table table-striped table-hover">
     <CAPTION> Récapitulatif de mes commandes </CAPTION>
     <TR>
-     <TH> N° de commande </TH>
+     <TH> Date </TH>
      <TH> Boutique </TH>
      <TH> Produits </TH>
      <TH> Tarif </TH>
@@ -10,7 +10,7 @@
     </TR>
     <% @shopping_carts.each do |cart| %>
       <TR>
-        <TD> <%= cart.id %>  </TD>
+        <TD> <%= cart.created_at ? l(cart.created_at.to_date, format: :test) : "no date" %>  </TD>
         <TD> <%= cart.shop.name %></TD>
         <TD>
           <ul>
