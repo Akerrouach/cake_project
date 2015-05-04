@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-xs-6">
       <div class="row">
         <% @pastries.each do |pastry| %>
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-xs-6">
             <div class="pastry-box">
             <%= link_to shop_path(pastry.shop) do %>
               <% if pastry.picture_1.exists? %>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-xs-6">
       <div id="map" style="width: 100%; height: 600px;"></div>
 
         <% content_for(:after_js) do %>

@@ -6,7 +6,7 @@ class Pastry < ActiveRecord::Base
   belongs_to :shop
 
   has_attached_file :picture_1,
-    styles: { medium: "300x300>", thumb: "100x100>" }
+    styles: { medium: "300x300>", small: "200x200>", thumb: "100x100>" }
 
   validates_attachment_content_type :picture_1,
     content_type: /\Aimage\/.*\z/
