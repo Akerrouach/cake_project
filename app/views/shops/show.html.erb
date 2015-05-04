@@ -67,18 +67,19 @@
         </div>
       </div>
     </div>
-
     <div class="col-xs-2 col-xs-offset-2">
       <div class="my-cart">
       </div>
     </div>
-
-
-
   </div>
 </div>
 
 
-
+<%= content_for :after_js do %>
+ <%= javascript_tag do %>
+  $(document).ready(function() {
+  })
+ <% end %>
+<% end %>
 
 

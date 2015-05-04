@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :pastries, except: [:index, :show]
+    resources :shopping_carts, only: [:show, :index]
+    post "validate", to: "shopping_carts#validate", as: :validate_cart
   end
 
 

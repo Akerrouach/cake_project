@@ -1,0 +1,19 @@
+<div class="container">
+    <TABLE border="1" class="text-center">
+    <CAPTION> Récapitulatif de mes commandes </CAPTION>
+    <TR>
+     <TH> N° de commande </TH>
+     <TH> Boutique </TH>
+     <TH> Produits </TH>
+     <TH> Tarif </TH>
+     <TH> Statut de la commande </TH>
+    </TR>
+    <TR>
+     <TD> <%= @cart.id %>  </TD>
+     <TD> <%= @cart.shop.name %>  </TD>
+     <TD> <%=  %> </TD>
+     <TD> <%= @cart.total %> €</TD>
+     <TD> <%= @cart.status %> </TD>
+    </TR>
+  </TABLE>
+</div>

@@ -5,6 +5,15 @@ class ShoppingCartPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+  def show?
+    record.user == user
+  end
+  def index?
+    record.user == user
+  end
+  def validate?
+    record.user == user
+  end
   class Scope < Scope
     def resolve
       scope.where(user_id: user)
