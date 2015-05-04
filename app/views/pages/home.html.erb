@@ -6,28 +6,30 @@
     </div>
   </div>
   <div class="container-fluid home-search">
-    <%= form_tag(pastries_path, method: :get, class: "form-inline search-size") do %>
-    <div class="text-center">
-      <div class="form-group nested-group">
-          <input type="text" class="form-control" placeholder="Macarons, éclairs... " name="item">
-          <input type="text"  data-provide='datepicker' class="form-control" name="delivery-date" placeholder="Date de livraison">
-          <input id="search_input_autocomplete_location" placeholder="Paris, Lyon..." name="location" class="form-control">
-          <input class="btn btn-success" type="submit" value="Rechercher">
-      </div>
+    <div class="row">
+      <%= form_tag(pastries_path, method: :get, class: "form-inline search-size") do %>
+        <div class="text-center">
+          <div class="form-group nested-group">
+              <input type="text" class="form-control" placeholder="Macarons, éclairs... " name="item">
+              <input type="text" class="datepicker form-control" placeholder="Date de livraison">
+              <input id="search_input_autocomplete_location" placeholder="Paris, Lyon..." name="location" class="form-control">
+              <input class="btn btn-success" type="submit" value="Rechercher">
+          </div>
+        </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
 
 
 <div class="container-fluid" id="presentation">
   <div class="row">
-    <div class="title-padded text-center"><h2>Notre fonctionnement</h2></div>
+    <div class="col-xs-12 title-padded text-center"><h2>Notre fonctionnement</h2></div>
 
       <ul class="step">
 
         <li>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="img-step">
             <%=image_tag("search.png") %>
           </div>
@@ -39,7 +41,7 @@
         </li>
 
         <li>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="img-step">
             <%=image_tag("cake.png") %>
           </div>
@@ -51,7 +53,7 @@
         </li>
 
         <li>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="img-step">
             <%=image_tag("meet.png") %>
           </div>
@@ -69,7 +71,7 @@
 
 <div class="container text-center" id="shops">
   <div class="row">
-    <div class="title-padded"><h2>Découvre les nouvelles boutiques près de chez toi</h2></div>
+    <div class="col-xs-12 title-padded"><h2>Découvre les nouvelles boutiques près de chez toi</h2></div>
     <div class="col-xs-12 col-sm-6 col-lg-4 text-center">
         <div class="pastry-card">
            <%=image_tag("anouar.png", class: "img-thumbnail") %>

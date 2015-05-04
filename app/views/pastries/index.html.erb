@@ -1,12 +1,11 @@
 <div class="container">
-
   <div class="row">
     <div class="col-xs-6">
       <div class="row">
         <% @pastries.each do |pastry| %>
           <div class="col-xs-6">
             <div class="pastry-box">
-            <%= link_to pastry_path(pastry) do %>
+            <%= link_to shop_path(pastry.shop) do %>
               <% if pastry.picture_1.exists? %>
                 <%= image_tag pastry.picture_1.url, class: "pastries-img" %>
                 <% else %>
@@ -36,22 +35,21 @@
     </div>
 
     <div class="col-xs-6">
+      <div id="map" style="width: 100%; height: 600px;"></div>
 
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-  <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-      $(document).on('ready', function() {
-        handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function(){
-          markers = handler.addMarkers(<%= raw @markers.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-        });
-      })
-    <% end %>
-  <% end %>
-
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).on('ready', function() {
+              handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function(){
+                markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+              });
+            })
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

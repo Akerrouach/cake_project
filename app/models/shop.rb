@@ -2,8 +2,8 @@ class Shop < ActiveRecord::Base
 
   attr_reader :complete_address_shop
 
-  belongs_to :user, dependent: :destroy
-  has_many :pastries
+  belongs_to :user
+  has_many :pastries, dependent: :destroy
   has_many :shopping_carts
 
   validates :name, presence: true

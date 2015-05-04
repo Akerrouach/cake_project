@@ -1,18 +1,20 @@
-<div class="cart">
+<div class="cart" id="<%= cart.id %>">
   <p>Votre panier</p>
   <i class="number-items">
     <%= cart.total_unique_items %>
   </i>
 
-<% ShoppingCartItem.where(["owner_id = ?", cart.id]).order("id ASC").each do |item| %>
-  <div class="item">
-    <div class="group">
-        <span class="quantity"><%= item.quantity %></span>
-        <span class="name"><%= Pastry.find(item.item_id).title %></span>
-        <span class="price"><%= item.price %><%= " €" %></span>
-    </div>
-
-        <ul class="list-unstyled quantityButtons">
+  <% ShoppingCartItem.where(["owner_id = ?", cart.id]).order("id ASC").each do |item| %>
+    <div class="row item">
+      <div class="col-xs-10">
+        <div class="group">
+          <span class="quantity"><%= item.quantity %></span>
+          <span class="name"><%= Pastry.find(item.item_id).title %></span>
+          <span class="price"><%= item.price %><%= " €" %></span>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <ul class="list-unstyled quantityButtons text-right">
           <%= link_to add_to_cart_pastry_path(Pastry.find(item.item_id)), remote: true, method: :post do %>
             <li class="increaseButton">
               <i class="fa fa-plus-circle"></i>
@@ -24,17 +26,17 @@
             </li>
           <% end %>
         </ul>
-
-  </div>
-<% end %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="totalCart">
     <p>Total: <span><%= cart.total %>€</span></p>
   </div>
 
-    <%= link_to do %>
-      <p class="buttonSend">Valider</p>
-    <% end %>
+  <%= link_to shop_validate_cart_path(cart.shop), method: :post, id: "validate_cart" do %>
+    <p class="buttonSend">Valider</p>
+  <% end %>
 
 
 </div>
