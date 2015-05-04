@@ -1,5 +1,40 @@
- <%= link_to "#" do %>
-  <i class="fa fa-shopping-cart"></i>
-  <%= t(".messages", default: "Mon panier") %>
-  <span class="badge"><%= cart.total_unique_items %> produits :<%= cart.total %>€</span>
+<div class="cart">
+  <p>Votre panier</p>
+  <i class="number-items">
+    <%= cart.total_unique_items %>
+  </i>
+
+<% ShoppingCartItem.where(["owner_id = ?", cart.id]).order("id ASC").each do |item| %>
+  <div class="item">
+    <div class="group">
+        <span class="quantity"><%= item.quantity %></span>
+        <span class="name"><%= Pastry.find(item.item_id).title %></span>
+        <span class="price"><%= item.price %><%= " €" %></span>
+    </div>
+
+        <ul class="list-unstyled quantityButtons">
+          <%= link_to add_to_cart_pastry_path(Pastry.find(item.item_id)), remote: true, method: :post do %>
+            <li class="increaseButton">
+              <i class="fa fa-plus-circle"></i>
+            </li>
+          <% end %>
+          <%= link_to remove_from_cart_pastry_path(Pastry.find(item.item_id)), remote: true, method: :delete do %>
+            <li class="decreaseButton">
+              <i class="fa fa-minus-circle"></i>
+            </li>
+          <% end %>
+        </ul>
+
+  </div>
 <% end %>
+
+  <div class="totalCart">
+    <p>Total: <span><%= cart.total %>€</span></p>
+  </div>
+
+    <%= link_to do %>
+      <p class="buttonSend">Valider</p>
+    <% end %>
+
+
+</div>
