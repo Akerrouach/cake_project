@@ -21,6 +21,8 @@ gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem "rails-assets-underscore"
 gem "coffee-script"
 
+gem 'activeadmin', github: 'activeadmin'
+
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
