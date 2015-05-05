@@ -1,7 +1,7 @@
 <div class="user-profil">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-3">
         <% if current_user.picture.exists? %>
             <%= image_tag @user.picture.url(:medium), class: "profil-img" %>
           <% else %>
@@ -9,11 +9,18 @@
         <% end %>
       </div>
 
-      <div class="col-xs-8">
-        <h2>Bonjour, je m'appelle <%= @user.first_name %> !</h2>
-        <p><%= link_to "Modifier le profil", edit_user_registration_path(current_user), class: "link"%></p>
-        <p><%= @user.description %></p>
+      <div class="col-xs-4">
+        <h2><%= @user.first_name %>,</h2>
+          <p><%= link_to "Modifier le profil", edit_user_registration_path(current_user), class: "link"%></p>
+            <br>
+          <div class= "about">
+              <h3>A propos</h3>
+            <p><%= @user.description %></p>
+          </div>
+          <br>
+            <p><%= link_to "Voir mes boutiques", shops_path, class: "link"%></p>
       </div>
     </div>
   </div>
 </div>
+
