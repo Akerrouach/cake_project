@@ -60,7 +60,7 @@
         <div class="row">
           <% number = 0 %>
           <% if @shop.pastries.empty? %>
-            <%= "Il n'y a aucunes pâtisseries " %><strong><%= @shop.name %></strong><%= " pour le moment." %>
+            <%= "Il n'y a aucune pâtisserie " %><strong><%= @shop.name %></strong><%= " pour le moment." %>
           <% else @shop.pastries.each do |pastry| %>
             <% number = number + 1 %>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">

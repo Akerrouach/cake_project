@@ -4,7 +4,8 @@
     <TR>
      <TH> Date </TH>
      <TH> Boutique </TH>
-     <TH> Produits </TH>
+     <TH> Produit </TH>
+     <TH> Quantité </TH>
      <TH> Tarif </TH>
      <TH> Statut de la commande </TH>
     </TR>
@@ -13,17 +14,25 @@
         <TD> <%= cart.created_at ? l(cart.created_at.to_date, format: :test) : "no date" %> </TD>
         <TD> <%= cart.shop.name %></TD>
         <TD>
-          <ul>
+          <ul class="list-unstyled">
             <% cart.shopping_cart_items.each do |cart_item| %>
               <li>
-                <%= cart_item.quantity %>
                 <%= cart_item.item.title %>
               </li>
             <% end %>
           </ul>
         </TD>
+        <TD>
+          <ul class="list-unstyled">
+            <% cart.shopping_cart_items.each do |cart_item| %>
+              <li>
+                <%= cart_item.quantity %>
+              </li>
+            <% end %>
+          </ul>
+        </TD>
         <TD> <%= cart.total %> €</TD>
-        <TD> <%= cart.status %> </TD>
+        <TD> <%= cart.accepted %> </TD>
       </TR>
     <% end %>
   </TABLE>
