@@ -10,8 +10,14 @@
       </div>
 
       <div class="col-xs-4">
-        <h2><%= @user.first_name %>,</h2>
-          <p><%= link_to "Modifier le profil", edit_user_registration_path(current_user), class: "link"%></p>
+        <h2>
+          <% if @user.first_name != nil %>
+            <%= @user.first_name %><%= "," %>
+            <% else  %>
+            <%= "" %>
+            <% end %>
+        </h2>
+          <p><%= link_to "Mettre à jour votre profil", edit_user_registration_path(current_user), class: "link"%></p>
             <br>
           <div class= "about">
               <h3>A propos</h3>
@@ -23,4 +29,3 @@
     </div>
   </div>
 </div>
-
