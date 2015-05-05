@@ -12,7 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 20150505123350) do
+ActiveRecord::Schema.define(version: 20150505145019) do
 
 
   # These are extensions that must be enabled in order to support this database
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150505123350) do
     t.integer  "shop_id"
     t.string   "accepted"
     t.datetime "created_at"
+    t.boolean  "delivery_choice"
   end
 
   add_index "shopping_carts", ["user_id"], name: "index_shopping_carts_on_user_id", using: :btree

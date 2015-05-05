@@ -8,7 +8,8 @@
      <TH> Produit </TH>
      <TH> Quantité </TH>
      <TH> Tarif </TH>
-     <TH> Statut de la commande </TH>
+     <TH> Statut </TH>
+     <TH> Mode de livraison </TH>
     </TR>
     <% @shopping_carts.each do |cart| %>
       <TR>
@@ -34,9 +35,15 @@
           </ul>
         </TD>
         <TD> <%= cart.total %> €</TD>
+        <TD> <% if cart.delivery_choice = true %>
+              <%= "Chez le patissier" %>
+              <% else %>
+              <%= "Chez l'acheteur" %>
+              <% end %>
+        </TD>
         <TD> <%= cart.accepted %> </TD>
-          <% if cart.accepted == "en attente" %>
-            <TD>
+        <TD>
+            <% if cart.accepted == "en attente" %>
               <ul class="list-unstyled">
                 <li>
                   <%= link_to accept_cart_shopping_cart_path(cart), method: :post do %>
@@ -45,12 +52,12 @@
                 </li>
                 <li>
                   <%= link_to decline_cart_shopping_cart_path(cart), method: :post do %>
-                    <p class="btn btn-danger">Decliner</p>
+                    <p class="btn btn-danger">Décliner</p>
                   <% end %>
                 </li>
               </ul>
-            </TD>
           <% end %>
+        </TD>
       </TR>
     <% end %>
   </TABLE>

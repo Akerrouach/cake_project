@@ -26,6 +26,7 @@ class ShoppingCartsController < ApplicationController
 
   def validate
     @cart = current_user.shopping_carts.last
+    @cart.delivery_choice = params[:delivery_choice]
     @cart.sent = true
     @cart.accepted = "en attente"
     authorize @cart
@@ -36,6 +37,18 @@ class ShoppingCartsController < ApplicationController
       render 'shops/show'
     end
   end
+
+  # def update
+  #   find_cart
+  #   authorize @cart
+  #   if @cart.update(shopping_cart_params)
+  #     respond_to do |format|
+  #       format.js
+  #     end
+  #   else
+  #     flash[:alert] = "ERREUR"
+  #   end
+  # end
 
   def accept
     skip_authorization
@@ -55,6 +68,10 @@ private
 
   def find_cart
     @cart = ShoppingCart.find(params[:id])
+  end
+
+  def shopping_cart_params
+    params.require(:shopping_cart).permit(:delivery_choice)
   end
 
 end
