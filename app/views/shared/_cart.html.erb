@@ -34,7 +34,7 @@
     <p>Total: <span><%= cart.total %>€</span></p>
   </div>
 
-  <%= link_to shop_validate_cart_path(cart.shop), method: :post, id: "validate_cart" do %>
+  <%= link_to validate_cart_shopping_cart_path(cart), method: :post do %>
     <p class="buttonSend">Valider</p>
   <% end %>
 

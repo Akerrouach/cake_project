@@ -14,9 +14,10 @@ class ShoppingCartPolicy < ApplicationPolicy
   def validate?
     record.user == user
   end
+
   class Scope < Scope
     def resolve
-      scope.where(user_id: user)
+      scope
     end
   end
 end

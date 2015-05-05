@@ -1,23 +1,61 @@
 class ShoppingCartsController < ApplicationController
-  def show
-    @cart = ShoppingCart.find(params[:id])
-    authorize @cart
+
+  before_action :find_cart, only: [:accept, :decline]
+
+  def orders_sent
+    skip_authorization
+    @shopping_carts = []
+    ShoppingCart.all.each do |cart|
+      if cart.user_id == current_user.id
+        @shopping_carts << cart if cart.sent
+      end
+    end
+    @shopping_carts = @shopping_carts.sort { |a, b| a[1] <=> b[1] }
   end
 
-  def index
-    @shopping_carts = policy_scope(ShoppingCart)
+  def orders_received
+    skip_authorization
+    @shopping_carts = []
+    ShoppingCart.all.each do |cart|
+      if (Shop.find(cart.shop_id)).user_id == current_user.id
+        @shopping_carts << cart if cart.sent
+      end
+    end
+    @shopping_carts = @shopping_carts.sort { |a, b| a[1] <=> b[1] }
   end
 
   def validate
     @cart = current_user.shopping_carts.last
-    @cart.status = true
+    @cart.sent = true
+    @cart.accepted = "en attente"
     authorize @cart
-
     if @cart.save
       session[:shopping_cart_id] = nil
-      redirect_to shop_shopping_carts_path
+      redirect_to orders_sent_shopping_carts_path
     else
       render 'shops/show'
     end
   end
+
+  def accept
+    skip_authorization
+    @cart.accepted = "acceptée"
+    @cart.save
+    redirect_to orders_received_shopping_carts_path
+  end
+
+  def decline
+    skip_authorization
+    @cart.accepted = "refusée"
+    @cart.save
+    redirect_to orders_received_shopping_carts_path
+  end
+
+private
+
+  def find_cart
+    @cart = ShoppingCart.find(params[:id])
+  end
+
 end
+
