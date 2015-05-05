@@ -6,8 +6,9 @@
 
 .user-profil {
   background: #F5F5F5;
-  height:1224px;
-  padding-left: 30px,
+  height:610px;
+  padding-left: 30px;
+  padding-top: 50px;
 
   h2 {
     font-size:44px;
@@ -28,9 +29,10 @@
 
 .about {
 
-  text-decoration: text
+  text-align: justify;
+
   h3 {
-    text-decoration: underline;
+    font-weight: bold;
   }
 
 }
