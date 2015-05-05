@@ -1,9 +1,13 @@
+#high_voltage_pages_show {
+  padding-top: 0;
+}
+
 #banner{
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), image-url('macaron2.jpg');
   background-size: cover;
   color: white;
-  margin-top: -10px;
+  margin-top: -81px;
   font-size: 35px;
   text-transform: uppercase;
   text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.11);
@@ -19,8 +23,8 @@
 .home-search{
   margin-top: 167px;
   position: relative;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 15px;
   background-color: rgba(0,0,0,0.6);
 }
 
@@ -30,7 +34,6 @@
   h2 {
     font-size:30px;
     line-height: 40px;
-
   }
 }
 
@@ -60,6 +63,7 @@
 
 #presentation {
   background-color: #EEEEEE;
+  padding-bottom: 30px;
   h2 {
     font-size:30px;
   }
@@ -79,38 +83,34 @@
   margin: 0 auto;
   height:110px;
 
+    li {
+      list-style: none;
+      .img-step {
+        float: left;
+        text-align: center;
+        position: relative;
+        height: 127px;
+        width: 90px;
+      }
 
-li {
-  list-style: none;
-
-  .img-step {
-    float: left;
-    text-align: center;
-    position: relative;
-    height: 127px;
-    width: 90px;
+    .cont {
+      position:relative;
+      float: left;
+      width: 180px;
+      float: left;
+      width: 180px;
+      margin-top: 0;
+      text-align: justify;
+      margin-top: -15px;
+    }
   }
-
-  .cont {
-    position:relative;
-    float: left;
-    width: 180px;
-    float: left;
-    width: 180px;
-    margin-top: 0;
-    text-align: justify;
-    margin-top: -15px;
-  }
-}
 }
 
 @media (max-width:1000px){
+  .step {
 
-.step {
-
-  width: 1000px;
-}
-
+    width: 1000px;
+  }
 }
 
 

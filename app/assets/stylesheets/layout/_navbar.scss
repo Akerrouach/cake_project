@@ -15,7 +15,7 @@ $navbar-bg: white;
  * Box model
  * ------------------------------------- */
 $navbar-height: 40px;
-$navbar-vertical-padding: 10px;
+$navbar-vertical-padding: 5px;
 $navbar-horizontal-padding: 20px;
 $navbar-border-bottom-width: 1px;
 $navbar-border-bottom-color: $gray-lighter;
@@ -39,6 +39,7 @@ $navbar-profile-border-width: 2px;
 /* -------------------------------------
  * SCSS code
  * ------------------------------------- */
+
 .navbar-wagon {
   z-index: 1;
   background: $navbar-bg;
@@ -57,6 +58,22 @@ $navbar-profile-border-width: 2px;
   top: 0px;
   left: 0;
   width: 100%;
+
+  &.transparent {
+    background: transparent;
+    border: none;
+
+    svg {
+      g#text {
+        path, rect, circle, polygon {
+          fill: white;
+        }
+      }
+    }
+
+    .navbar-nav > li > a, .navbar-wagon .navbar-nav > .open > a, .navbar-wagon .navbar-nav > li > a:focus, .navbar-wagon .navbar-nav > .open > a:focus {color: white;}
+  }
+
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
   .navbar-nav > li > a:focus,
@@ -98,8 +115,10 @@ $navbar-profile-border-width: 2px;
   }
 
   .navbar-brand img, .navbar-brand svg {
-    height: $navbar-height;
+    height: 56px;
     padding: 0px;
+    position: relative;
+    bottom: 9Px;
   }
 
   .img-avatar{
@@ -118,7 +137,7 @@ $navbar-profile-border-width: 2px;
 
   .navbar-nav > li > .dropdown-menu{
     border-radius: 0;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   .navbar-nav > li > .dropdown-menu:before{
