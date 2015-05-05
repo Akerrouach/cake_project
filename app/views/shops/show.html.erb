@@ -102,7 +102,13 @@
     </div>
   </div>
 </div>
-
-
-
+<%= content_for :after_js do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $('#shopping_cart_delivery_choice').on('change', function() {
+        $('.edit_shopping_cart').submit();
+      })
+    })
+  <% end %>
+<% end %>
 

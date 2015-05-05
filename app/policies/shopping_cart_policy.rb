@@ -14,6 +14,9 @@ class ShoppingCartPolicy < ApplicationPolicy
   def validate?
     record.user == user
   end
+  def update?
+    record.user == user
+  end
 
   class Scope < Scope
     def resolve
