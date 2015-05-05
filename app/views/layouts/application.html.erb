@@ -10,7 +10,8 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body id="<%= params[:controller]%>_<%= params[:action]%>">
+<body
+id="<%= (params[:controller] + "_" + params[:action]).gsub('/', '_') %>">
   <%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
 

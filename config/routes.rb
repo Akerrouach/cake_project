@@ -16,9 +16,19 @@ Rails.application.routes.draw do
 
   resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :pastries, except: [:index, :show]
-    resources :shopping_carts, only: [:show, :index]
-    post "validate", to: "shopping_carts#validate", as: :validate_cart
   end
+
+  resources :shopping_carts do
+    collection do
+      get 'orders_sent', to: "shopping_carts#orders_sent"
+      get 'orders_received', to: "shopping_carts#orders_received"
+    end
+    member do
+      post "validate", to: "shopping_carts#validate", as: :validate_cart
+      post "accept", to: "shopping_carts#accept", as: :accept_cart
+      post "decline", to: "shopping_carts#decline", as: :decline_cart
+    end
+end
 
 
 end

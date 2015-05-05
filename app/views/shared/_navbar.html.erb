@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <%= image_tag "logoBlack.png" %>
+        <%= render 'shared/logo' %>
       </a>
     </div>
 
@@ -45,8 +45,13 @@
               </li>
               <li>
               <li>
-                <%= link_to shop_shopping_carts_path(current_user) do %>
-                  <i class="fa fa-shopping-cart"></i>  <%= t ".commandes", default: "Mes commandes" %>
+                <%= link_to orders_sent_shopping_carts_path do %>
+                  <i class="fa fa-shopping-cart"></i>  <%= t ".commandes", default: "Mes commandes passées" %>
+                <% end %>
+              </li>
+                <li>
+                <%= link_to orders_received_shopping_carts_path do %>
+                  <i class="fa fa-cutlery"></i> <%= t ".commandes", default: "Mes commandes à traiter" %>
                 <% end %>
               </li>
               <li>
