@@ -16,6 +16,7 @@
   }
   h2 {
       line-height: 40px;
+      color: rgba(192, 186, 186, 0.6);
   }
 }
 
@@ -33,7 +34,7 @@
 
 #shops{
   background-color: #FFFFFF;
-  margin: 40px auto;
+  margin: 30px auto;
   h2 {
     font-size:30px;
     line-height: 40px;
@@ -65,54 +66,27 @@
 }
 
 #presentation {
-  background-color: #EEEEEE;
-  padding-bottom: 30px;
+  background-color: rgba(192, 131, 102, 0.41);
+  padding-bottom: 50px;
+  padding-top: 50px;
+  border-bottom: 1px rgba(199, 170, 157, 0.56) solid;
   h2 {
     font-size:30px;
   }
   h3 {
-    font-size:16px;
-    color: #555555;
+    font-size:18px;
+    color: rgb(231, 65, 60);;
   }
   p {
     font-size:14px;
     color: black;
+
   }
-}
-
-.step {
-
-  width: 1100px;
-  margin: 0 auto;
-  height:110px;
-
-    li {
-      list-style: none;
-      .img-step {
-        float: left;
-        text-align: center;
-        position: relative;
-        height: 127px;
-        width: 90px;
-      }
-
-    .cont {
-      position:relative;
-      float: left;
-      width: 180px;
-      float: left;
-      width: 180px;
-      margin-top: 0;
-      text-align: justify;
-      margin-top: -15px;
-    }
-  }
-}
-
-@media (max-width:1000px){
-  .step {
-
-    width: 1000px;
+  img {
+    height: 100px;
+    width: 100px;
+    margin-left: 50px;
+    margin-top: 45px;
   }
 }
 

@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(version: 20150506170405) do
     t.integer  "shop_id"
     t.string   "accepted"
     t.datetime "created_at"
+    t.boolean  "delivery_choice"
     t.boolean  "review_status",   default: false
     t.boolean  "delivery_status"
-    t.boolean  "delivery_choice"
   end
 
   add_index "shopping_carts", ["user_id"], name: "index_shopping_carts_on_user_id", using: :btree
