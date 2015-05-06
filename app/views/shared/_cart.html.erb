@@ -38,6 +38,10 @@
       <%= label_tag :delivery_choice, "Mode de livraison" %>
       <%= select_tag :delivery_choice, options_for_select([["Chez le patissier", true], ["Chez vous", false]]), class: "form-control" %>
     </div>
+    <div class="form-group">
+      <%= label_tag :delivery_date, "Date de livraison" %>
+      <%= text_field_tag :delivery_date, "", class: "form-control", required: true, data: { provide: "datepicker" } %>
+    </div>
     <%= submit_tag "Valider", class: "buttonSend" %>
   <% end %>
 </div>

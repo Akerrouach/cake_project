@@ -3,6 +3,8 @@ class ShoppingCart < ActiveRecord::Base
   belongs_to :user
   belongs_to :shop
 
+  validates :delivery_date, presence: true, on: [:update]
+
   def tax_pct
     0
   end

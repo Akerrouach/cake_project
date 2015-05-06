@@ -7,12 +7,13 @@
      <TH> Produit </TH>
      <TH> Quantité </TH>
      <TH> Tarif </TH>
+     <TH> Date de livraison</TH>
      <TH> Mode de livraison</TH>
      <TH> Statut</TH>
     </TR>
     <% @shopping_carts.each do |cart| %>
       <TR>
-        <TD> <%= cart.created_at ? l(cart.created_at.to_date, format: :test) : "no date" %> </TD>
+        <TD> <%= l(cart.created_at.to_date, format: :test) %> </TD>
         <TD> <%= cart.shop.name %></TD>
         <TD>
           <ul class="list-unstyled">
@@ -33,7 +34,8 @@
           </ul>
         </TD>
         <TD> <%= cart.total %> €</TD>
-        <TD> <% if cart.delivery_choice = true %>
+        <TD> <%= l(cart.delivery_date, format: :test) %></TD>
+        <TD> <% if cart.delivery_choice %>
               <%= "Chez le patissier" %>
               <% else %>
               <%= "Chez l'acheteur" %>

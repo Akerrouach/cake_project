@@ -27,6 +27,7 @@ class ShoppingCartsController < ApplicationController
   def validate
     @cart = current_user.shopping_carts.last
     @cart.delivery_choice = params[:delivery_choice]
+    @cart.delivery_date = params[:delivery_date]
     @cart.sent = true
     @cart.accepted = "en attente"
     authorize @cart
@@ -34,6 +35,7 @@ class ShoppingCartsController < ApplicationController
       session[:shopping_cart_id] = nil
       redirect_to orders_sent_shopping_carts_path
     else
+      @shop = @cart.shop
       render 'shops/show'
     end
   end
@@ -71,7 +73,7 @@ private
   end
 
   def shopping_cart_params
-    params.require(:shopping_cart).permit(:delivery_choice)
+    params.require(:shopping_cart).permit(:delivery_choice, :delivery_date)
   end
 
 end
