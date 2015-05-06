@@ -3,9 +3,6 @@ class ShoppingCart < ActiveRecord::Base
   belongs_to :user
   belongs_to :shop
 
-
-  after_validate :send_order_email
-
   validates :delivery_date, presence: true, on: [:update]
 
 
@@ -13,11 +10,17 @@ class ShoppingCart < ActiveRecord::Base
     0
   end
 
-
-  private
-
   def send_order_email
     UserMailer.order(self.user, self).deliver
+    UserMailer.order_for_baker(self.shop.user, self).deliver
   end
+
+  def send_accepted_order_email
+    UserMailer.order_accepted(self.user, self).deliver
+  end
+
+   def send_refused_order_email
+    UserMailer.order_refused(self.user, self).deliver
+    end
 
 end
