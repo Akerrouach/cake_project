@@ -8,9 +8,8 @@ class ReviewsController < ApplicationController
     @review.shopping_cart_id = shopping_carts.last.id
 
     if @review.save
-      binding.pry
       shopping_carts.each do |shopping_cart|
-        shopping_cart.update_attribute(:review_status, true)
+      shopping_cart.update_attribute(:review_status, true)
       end
     else
       # Gestion d'erreur
