@@ -6,8 +6,6 @@ $(document).ready(function(){
     starOn: 'star-on.png'
   });
 
-  rating = oForm.elements["name"].value
-
 });
 
 
