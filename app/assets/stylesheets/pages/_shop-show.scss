@@ -1,26 +1,37 @@
 .header-shop {
   margin-top: -10px;
-  background-color: #666666;
+  background-color: #904C77;
   padding-bottom:20px;
-  padding-top:20px;
-  height: 184px;
+  padding-top:10px;
+  height: 200px;
 
 p {
 
-  color: #FF5151;
+  color: white;
   font-size:20px;
   font-weight:10px;
 
 }
 
-h2 {
+h1 {
 
   color:#FFFFFF;
-  font-size: 28px;
+  font-size: 38px;
   font-weight:200;
   letter-spacing:1px;
 
 }
+
+h2 {
+
+  color:red;
+  font-size: 24px;
+  font-weight:200;
+  letter-spacing:1px;
+
+}
+
+
 
 h3 {
   margin-bottom: 10px;
@@ -35,6 +46,14 @@ h3 {
 .shop-img {
   width: 100px;
   height: 100px;
+  border: 1px solid #878988;
+  margin-right:20px;
+  margin-top:23px;
+}
+
+.shop-img2 {
+  width: 150px;
+  height: 150px;
   border: 1px solid #878988;
   margin-right:20px;
   margin-top:23px;
@@ -86,8 +105,9 @@ box-shadow: 0px 1px 4px #E4E4E4;
 
   .pastry-img {
     height: 150px;
-    width: 150px;
-    margin: 10px 35px;
+    width: 200px;
+    padding-left: 10px;
+    margin-bottom: 10px;
     position:relative;
   }
 }
@@ -124,7 +144,7 @@ box-shadow: 0px 1px 4px #E4E4E4;
 .price {
   button {
     position: absolute;
-    bottom: 8px;
+    top: 155px;
     right: -4px;
     margin-right: 10px;
     font-size:15px;
