@@ -108,6 +108,13 @@
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
       <div id="comments">
+        <% @shop.reviews.each do |review| %>
+          <%= User.find(review.shopping_cart_id).picture %>
+          <%= User.find(review.shopping_cart_id).first_name %>
+          <%= User.find(review.shopping_cart_id).last_name %>
+          <%= "Note:" %> <%= review.rating %>
+          <%= "Commentaire:" %> <%= review.content %>
+        <% end %>
         <% if @can_post_review %>
           <%= render "reviews/form" %>
         <% end %>
