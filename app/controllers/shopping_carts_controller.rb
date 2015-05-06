@@ -4,12 +4,7 @@ class ShoppingCartsController < ApplicationController
 
   def orders_sent
     skip_authorization
-    @shopping_carts = []
-    ShoppingCart.all.each do |cart|
-      if cart.user_id == current_user.id
-        @shopping_carts << cart if cart.sent
-      end
-    end
+    @shopping_carts = current_user.shopping_carts.select { |cart| cart.sent }
     @shopping_carts = @shopping_carts.sort { |a, b| a[1] <=> b[1] }
   end
 
@@ -33,6 +28,7 @@ class ShoppingCartsController < ApplicationController
     authorize @cart
     if @cart.save
       session[:shopping_cart_id] = nil
+      @cart.send_order_email
       redirect_to orders_sent_shopping_carts_path
     else
       @shop = @cart.shop
@@ -40,30 +36,28 @@ class ShoppingCartsController < ApplicationController
     end
   end
 
-  # def update
-  #   find_cart
-  #   authorize @cart
-  #   if @cart.update(shopping_cart_params)
-  #     respond_to do |format|
-  #       format.js
-  #     end
-  #   else
-  #     flash[:alert] = "ERREUR"
-  #   end
-  # end
-
   def accept
     skip_authorization
     @cart.accepted = "acceptée"
-    @cart.save
-    redirect_to orders_received_shopping_carts_path
+    if @cart.save
+      @cart.send_accepted_order_email
+      redirect_to orders_received_shopping_carts_path
+    else
+      flash[:alert] = "Erreur"
+      redirect_to :back
+    end
   end
 
   def decline
     skip_authorization
     @cart.accepted = "refusée"
-    @cart.save
-    redirect_to orders_received_shopping_carts_path
+    if @cart.save
+      @cart.send_refused_order_email
+      redirect_to orders_received_shopping_carts_path
+    else
+      flash[:alert] = "Erreur"
+      redirect_to :back
+    end
   end
 
 private
@@ -75,6 +69,7 @@ private
   def shopping_cart_params
     params.require(:shopping_cart).permit(:delivery_choice, :delivery_date)
   end
+
 
 end
 
