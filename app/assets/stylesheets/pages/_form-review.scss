@@ -1,0 +1,14 @@
+.btn-review {
+  border-radius: 9px;
+
+  &:hover {
+      background-color: #FF5151;
+    }
+
+    &:focus {
+      background-color: #FF5151;
+      border:none !important;
+      outline:none !important;
+    }
+  margin-bottom:10px;
+}

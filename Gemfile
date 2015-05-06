@@ -20,6 +20,7 @@ gem "gmaps4rails"
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem "rails-assets-underscore"
 gem "coffee-script"
+gem "pry"
 
 gem 'activeadmin', github: 'activeadmin'
 
@@ -32,6 +33,7 @@ gem 'bootstrap-datepicker-rails'
 
 gem "rails-i18n"
 gem "devise-i18n"
+gem 'rails-assets-raty'
 gem "devise-i18n-views"
 
 group :development, :test do

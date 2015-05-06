@@ -36,24 +36,22 @@
 <div class="sommaire-shop">
   <ol class="breadcrumb">
   <li class="clickable"><a href="#pastries-shop">Produits</a></li>
-  <li class="clickable"><a href="#">Commentaires</a></li>
+  <li class="clickable"><a href="#comments">Commentaires</a></li>
 </ol>
 </div>
 
 <div class="container">
-
   <div class="row">
-
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
       <div id="pastries-shop">
         <div class="header-pastries">
         <ol class="breadcrumb">
           <li><h3>SES PATISSERIES</h3></li>
-          <li class="link">
-              <% if @shop.user == current_user %>
-                <%= link_to "Ajouter une patisserie", new_shop_pastry_path(@shop) %>
-              <% end %>
-          </li>
+          <% if @shop.user == current_user %>
+            <li class="link">
+              <%= link_to "Ajouter une patisserie", new_shop_pastry_path(@shop) %>
+            </li>
+          <% end %>
         </ol>
         </div>
         <hr class="box-shadow-separator">
@@ -103,6 +101,16 @@
   </div>
 </div>
 
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+      <div id="comments">
+        <% if @can_post_review %>
+          <%= render "reviews/form" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 

@@ -4,6 +4,7 @@
 //= require bootstrap-datepicker
 //= require underscore
 //= require gmaps/google
+//= require raty/lib/jquery.raty.js
 
 //= require_tree ./app
 

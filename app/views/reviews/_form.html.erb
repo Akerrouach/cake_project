@@ -1,0 +1,8 @@
+<%= simple_form_for([@shop, @shopping_cart.build_review], remote: true) do |form| %>
+  <div class="rating"><strong>Note la boutique:  </strong></div>
+  <%= form.input :content, label: 'Laisse un commentaire:', :input_html => { :rows =>3, :style => 'width: 75%'} %>
+  <%= form.button :submit, 'Poste ton commentaire!', class: "btn btn-default btn-review" %>
+<% end %>
+
+
+

@@ -5,6 +5,7 @@ class Shop < ActiveRecord::Base
   belongs_to :user
   has_many :pastries, dependent: :destroy
   has_many :shopping_carts
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true
