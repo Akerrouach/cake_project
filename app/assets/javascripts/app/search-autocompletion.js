@@ -11,10 +11,5 @@ function initializeAutocomplete(id) {
 }
 
 // JS DatePicker
-
- $(document).ready(function(){
-    $('.datepicker').datepicker({
-        format: 'dd/mm/yyyy',
-        language: 'fr',
-    });
-  });
+ $.fn.datepicker.defaults.format = 'dd/mm/yyyy';
+ $.fn.datepicker.defaults.language = 'fr';

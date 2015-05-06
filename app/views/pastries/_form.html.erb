@@ -1,9 +1,9 @@
 <%= simple_form_for([@shop, @pastry],  html: { multipart: true }) do |f| %>
   <%= f.input :title, label: 'Nom de la patisserie', placeholder: "Macaron à la fraise", required: true %>
-  <%= f.input :description, as: :text, :input_html => { :rows => 7 , :style => 'width: 100%'}, label: 'Description de la patisserie :',placeholder: "Ingrédients, quantité, nombre de personnes...", required: true %>
-  <%= f.input :price_per_unit, as: :integer, label: "Prix à l'unité (€)", placeholder: "5", required: true %>
-  <%= f.input :unit_volume, as: :text, label: "Indiquez l'unité", placeholder: "par macaron, par personne...", required: true %>
+  <%= f.input :description, as: :text, :input_html => { :rows => 7 , :style => 'width: 100%'}, label: 'Description de la patisserie :',placeholder: "Ingrédients, quantité, ...", required: true %>
+  <%= f.input :price_per_unit, as: :integer, label: "Prix à l'unité (€)", placeholder: "€", required: true %>
+  <%= f.input :unit_volume, as: :text, label: "Indiquez le minimum", placeholder: " ... ", required: true %>
   <p>Ajoute ton image :</p>
   <p><%= f.file_field :picture_1 %></p>
-  <%= f.button :submit, 'Ajouter une patisserie', class: "btn btn-success" %>
+  <%= f.button :submit, 'Ajouter la patisserie', class: "btn btn-success" %>
 <% end %>

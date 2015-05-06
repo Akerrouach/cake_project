@@ -29,7 +29,9 @@ Rails.application.routes.draw do
       post "accept", to: "shopping_carts#accept", as: :accept_cart
       post "decline", to: "shopping_carts#decline", as: :decline_cart
     end
-end
+  end
+
+  resources :shopping_carts, only: :update
 
 
 end

@@ -1,8 +1,8 @@
 <div id="banner">
   <div class="container">
     <div class='text-center'>
-        <h1 style="padding-top: 250px"> <strong>Bienvenue chez Macaron</strong></h1>
-        <h2>Trouve les meilleurs macarons près de chez toi</h2>
+        <h1 style="padding-top: 250px"> Delice Avenue </h1>
+        <h2>Trouve les meilleurs patisseries près de chez toi</h2>
     </div>
   </div>
   <div class="container-fluid home-search">
@@ -10,8 +10,9 @@
       <%= form_tag(pastries_path, method: :get, class: "form-inline search-size") do %>
         <div class="text-center">
           <div class="form-group nested-group">
+
               <input type="text" class="form-control" placeholder="Macaron, éclair... " name="item">
-              <input type="text" class="datepicker form-control" placeholder="Date de livraison">
+              <input type="text" data-provide="datepicker" class="form-control" placeholder="Date de livraison">
               <input id="search_input_autocomplete_location" placeholder="Paris, Lyon..." name="location" class="form-control">
               <input class="btn btn-success" type="submit" value="Rechercher">
           </div>

@@ -26,4 +26,18 @@ en:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
       short: "%b %d"
-      test: "%d %b. %Y"
+      test: "%d %b %Y"
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Avr
+    - Mai
+    - Jun
+    - Jul
+    - Aou
+    - Sep
+    - Oct
+    - Nov
+    - Dec

@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150506085916) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,8 +97,12 @@ ActiveRecord::Schema.define(version: 20150506085916) do
     t.integer  "shop_id"
     t.string   "accepted"
     t.datetime "created_at"
+<<<<<<< HEAD
     t.boolean  "review_status",   default: false
     t.boolean  "delivery_status"
+=======
+    t.boolean  "delivery_choice"
+>>>>>>> 66a7535d0698968c34a41f179c7286c958b99176
   end
 
   add_index "shopping_carts", ["user_id"], name: "index_shopping_carts_on_user_id", using: :btree
