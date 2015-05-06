@@ -74,5 +74,6 @@ private
     params.require(:shopping_cart).permit(:delivery_choice)
   end
 
+
 end
 
