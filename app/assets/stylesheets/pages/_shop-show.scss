@@ -1,9 +1,15 @@
 .header-shop {
   margin-top: -10px;
-  background-color: #904C77;
-  padding-bottom:20px;
-  padding-top:10px;
-  height: 200px;
+  background-color: #B34253;
+  padding-bottom: 39px;
+  padding-top: 35px;
+
+a   {
+  color:white;
+    &:hover   {
+      color:white;
+    }
+}
 
 p {
 
@@ -17,17 +23,17 @@ h1 {
 
   color:#FFFFFF;
   font-size: 38px;
-  font-weight:200;
+  font-weight:300;
   letter-spacing:1px;
 
 }
 
 h2 {
 
-  color:red;
+  color: rgba(242, 169, 180, 1);
   font-size: 24px;
-  font-weight:200;
-  letter-spacing:1px;
+  font-weight: 200;
+  letter-spacing: 1px;
 
 }
 
@@ -44,19 +50,23 @@ h3 {
 }
 
 .shop-img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border: 1px solid #878988;
-  margin-right:20px;
-  margin-top:23px;
+  margin-right: 20px;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.05);
+  margin-top: 23px;
+  border-radius: 50%;
 }
 
 .shop-img2 {
   width: 150px;
   height: 150px;
   border: 1px solid #878988;
-  margin-right:20px;
-  margin-top:23px;
+  margin-right: 20px;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.05);
+  margin-top: 23px;
+  border-radius: 50%;
 }
 
 .img {
@@ -66,7 +76,7 @@ height: 184px;
 
 
 #pastries-shop {
-  margin-left:80px;
+
   .breadcrumb {background: white; border: white; border-radius: 0px; display: block;}
   .breadcrumb a {color: black}
   .breadcrumb>li+li:before {
@@ -76,14 +86,13 @@ height: 184px;
 }
 
 .sommaire-shop {
-  margin-top:10px;
-  margin-left:53px;
-.breadcrumb {background: white; border: white; border-radius: 0px; display: block;}
-.breadcrumb li {font-size: 15px;}
-.breadcrumb a {color: black}
-.breadcrumb>li+li:before {
-  color: black;
-  content: "\007C\00a0";
+
+  .breadcrumb {background: white; border: white; border-radius: 0px; display: block;}
+  .breadcrumb li {font-size: 15px;}
+  .breadcrumb a {color: black}
+  .breadcrumb>li+li:before {
+    color: black;
+    content: "\007C\00a0";
 }
 
 .active-sommaire {
@@ -153,11 +162,11 @@ box-shadow: 0px 1px 4px #E4E4E4;
     height: 2em;
 
     &:hover {
-      background-color: #FF5151;
+      background-color: #B34253;
     }
 
     &:focus {
-      background-color: #FF5151;
+      background-color: #B34253;
       border:none !important;
       outline:none !important;
     }
