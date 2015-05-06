@@ -5,17 +5,17 @@
       <div class="col-xs-12">
         <div class="img">
           <% if @shop.picture.exists? %>
-            <%= image_tag @shop.picture.url(:medium), class: "img-responsive shop-img" %>
+            <%= image_tag @shop.picture.url(:medium), class: "img-responsive shop-img2" %>
           <% else %>
-            <%= image_tag "http://placehold.it/200x200", class: "img-responsive shop-img"%>
+            <%= image_tag "http://placehold.it/300x300", class: "img-responsive shop-img2"%>
           <% end %>
         </div>
-          <h2>
+          <h1>
             <%= @shop.name %> <br>
-          </h2>
-          <p>
+          </h1>
+          <h2>
             <%= @shop.description %>
-          </p>
+          </h2>
           <ul class="list-unstyled list-inline">
             <li class="link">
               <% if @shop.user == current_user %>
@@ -66,7 +66,9 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
               <div class="animateBox">
                   <% if pastry.picture_1.exists? %>
+                  <%= link_to add_to_cart_pastry_path(pastry), remote: true, method: :post do %>
                     <%= image_tag pastry.picture_1.url(:thumb), class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url(:small)}" %>
+                    <%end %>
                   <% else %>
                     <%= image_tag "http://placehold.it/100x100", class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url}" %>
                   <% end %>
@@ -81,7 +83,7 @@
                     </div>
                   <% end %>
                 <div class="info">
-                  <span class="number">nº <%= number %></span><%=pastry.title.slice(0,1).capitalize + pastry.title.slice(1..-1)%>
+                  <%=pastry.title.slice(0,1).capitalize + pastry.title.slice(1..-1)%>
                   <p><%=pastry.description.slice(0,1).capitalize + pastry.description.slice(1..-1)%></p>
                 </div>
                 <div class="price">
