@@ -4,12 +4,7 @@ class ShoppingCartsController < ApplicationController
 
   def orders_sent
     skip_authorization
-    @shopping_carts = []
-    ShoppingCart.all.each do |cart|
-      if cart.user_id == current_user.id
-        @shopping_carts << cart if cart.sent
-      end
-    end
+    @shopping_carts = current_user.shopping_carts.select { |cart| cart.sent }
     @shopping_carts = @shopping_carts.sort { |a, b| a[1] <=> b[1] }
   end
 
@@ -26,13 +21,17 @@ class ShoppingCartsController < ApplicationController
 
   def validate
     @cart = current_user.shopping_carts.last
+    @cart.delivery_choice = params[:delivery_choice]
+    @cart.delivery_date = params[:delivery_date]
     @cart.sent = true
     @cart.accepted = "en attente"
     authorize @cart
     if @cart.save
       session[:shopping_cart_id] = nil
+      @cart.send_order_email
       redirect_to orders_sent_shopping_carts_path
     else
+      @shop = @cart.shop
       render 'shops/show'
     end
   end
@@ -40,15 +39,25 @@ class ShoppingCartsController < ApplicationController
   def accept
     skip_authorization
     @cart.accepted = "acceptée"
-    @cart.save
-    redirect_to orders_received_shopping_carts_path
+    if @cart.save
+      @cart.send_accepted_order_email
+      redirect_to orders_received_shopping_carts_path
+    else
+      flash[:alert] = "Erreur"
+      redirect_to :back
+    end
   end
 
   def decline
     skip_authorization
     @cart.accepted = "refusée"
-    @cart.save
-    redirect_to orders_received_shopping_carts_path
+    if @cart.save
+      @cart.send_refused_order_email
+      redirect_to orders_received_shopping_carts_path
+    else
+      flash[:alert] = "Erreur"
+      redirect_to :back
+    end
   end
 
 private
@@ -56,6 +65,11 @@ private
   def find_cart
     @cart = ShoppingCart.find(params[:id])
   end
+
+  def shopping_cart_params
+    params.require(:shopping_cart).permit(:delivery_choice, :delivery_date)
+  end
+
 
 end
 
