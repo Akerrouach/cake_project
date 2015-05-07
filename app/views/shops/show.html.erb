@@ -65,10 +65,10 @@
               <div class="animateBox">
                   <% if pastry.picture_1.exists? %>
                   <%= link_to add_to_cart_pastry_path(pastry), remote: true, method: :post do %>
-                    <%= image_tag pastry.picture_1.url, class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url(:medium)}" %>
+                    <%= image_tag pastry.picture_1.url, class: "pastry-img"%>
                     <%end %>
                   <% else %>
-                    <%= image_tag "placeholder2.png", class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url}" %>
+                    <%= image_tag "placeholder2.png", class: "pastry-img"%>
                   <% end %>
                   <% if pastry.shop.user == current_user %>
                     <div class="buttons">
