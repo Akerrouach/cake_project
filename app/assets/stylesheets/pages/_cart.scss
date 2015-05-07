@@ -79,6 +79,12 @@
     border:none;
     margin-bottom: 10px;
     }
+
+    .form-group   {
+    margin-bottom: 25px;
+    margin-left: 33px;
+    text-align: center;
+    }
   }
 
   .buttonSend {
@@ -97,8 +103,6 @@
 
 .quantityButtons {
   position: relative;
-  // right: -180px;
-  // top: -36px;
   width: 30px;
   font-size: 15px;
   line-height: 17px;

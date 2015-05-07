@@ -5,7 +5,6 @@
       <h3><%= "Vous n'avez pas encore de boutiques." %></h3>
     <% else %>
       <% @shops.each do |shop| %>
-        <% number = number + 1 %>
         <div class="col-xs-3">
           <div class="shop-box text-center">
             <%= link_to shop_path(shop) do %>
@@ -16,21 +15,15 @@
               <% end %>
             <% end %>
             <div class="pastry-details">
-              <p class="pastry-title"><span class="number">nº <%= number %><%=" "%></span><%= shop.name%></p>
-              <ul class="list-inline list-unstyled">
-                <li class="shop-description">
+              <p class="pastry-title"><%= shop.name%></p>
+                <p class="shop-description">
                   <% if shop.description.length > 30 %>
                     <%=shop.description.slice(0,1).capitalize + shop.description.slice(1..30).downcase %><%="..."%>
                   <% else %>
                     <%=shop.description.slice(0,1).capitalize + shop.description.slice(1..-1).downcase %>
                   <% end %>
-                </li>
-              </ul>
-              <%= link_to shop_path(shop) do %>
-                <div class="icon-right-container">
-                  <i class="fa fa-angle-right icon-right"></i>
-                </div>
-              <% end %>
+                </p>
+
             </div>
           </div>
         </div>
