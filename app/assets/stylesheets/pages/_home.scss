@@ -42,12 +42,11 @@
 }
 
 .pastry-card {
-  margin: 20px auto;
-  width: 400px;
+  width: 300px;
   margin: 0 auto;
-  border-radius: 1px;
   color: white;
-  opacity: 1;
+  border-radius:50%;
+
   &:hover {
     transition: all 0.2s ease;
     opacity: 1;
