@@ -7,9 +7,8 @@
           <% if review.user.picture.exists? %>
             <%= image_tag review.user.picture, class: "img-rating" %>
           <% else %>
-            <%= image_tag "http://placehold.it/30x30", class: "img-rating" %>
+            <%= image_tag "placeholder.png", class: "img-rating" %>
           <% end %>
-
         <% end %>
       </div>
     </div>

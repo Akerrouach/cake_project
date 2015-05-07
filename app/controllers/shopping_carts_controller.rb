@@ -1,11 +1,11 @@
 class ShoppingCartsController < ApplicationController
 
-  before_action :find_cart, only: [:accept, :decline]
+  before_action :find_cart, only: [:validate, :accept, :decline]
 
   def orders_sent
     skip_authorization
     @shopping_carts = current_user.shopping_carts.select { |cart| cart.sent }
-    @shopping_carts = @shopping_carts.sort { |a, b| a[1] <=> b[1] }
+    @shopping_carts = @shopping_carts.sort {|a,b| a[7] <=> b[7]}
   end
 
   def orders_received
@@ -16,13 +16,13 @@ class ShoppingCartsController < ApplicationController
         @shopping_carts << cart if cart.sent
       end
     end
-    @shopping_carts = @shopping_carts.sort { |a, b| a[1] <=> b[1] }
+    @shopping_carts = @shopping_carts.sort {|a,b| a[7] <=> b[7]}
   end
 
   def validate
-    @cart = current_user.shopping_carts.last
     @cart.delivery_choice = params[:delivery_choice]
     @cart.delivery_date = params[:delivery_date]
+    p @cart, params[:delivery_date]
     @cart.sent = true
     @cart.accepted = "en attente"
     authorize @cart
