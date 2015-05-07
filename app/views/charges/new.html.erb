@@ -10,3 +10,16 @@
           data-description="A month's subscription"
           data-amount="500"></script>
 <% end %>
+
+
+<form action="/charge" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_zZS2yRdkpTWcZ36KGJVT4YJr"
+    data-image="/img/documentation/checkout/marketplace.png"
+    data-name="Demo Site"
+    data-description="2 widgets"
+    data-currency="eur"
+    data-amount="2000">
+  </script>
+</form>
