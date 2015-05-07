@@ -106,16 +106,17 @@ box-shadow: 0px 1px 4px #E4E4E4;
 }
 
 .animateBox {
-  border: 1px solid #d1d1d1;
-  height: 302px;
+
+  box-shadow: 1px 1px 1px #d1d1d1;
+  height: 300px;
   width: 220px;
   position: relative;
   margin-bottom: 20px;
+  background: rgb(247, 247, 247);
 
   .pastry-img {
-    height: 150px;
-    width: 200px;
-    padding-left: 10px;
+    height: 180px;
+    width: 100%;
     margin-bottom: 10px;
     position:relative;
   }
@@ -160,13 +161,16 @@ box-shadow: 0px 1px 4px #E4E4E4;
     border-radius: 9px;
     width: 5em;
     height: 2em;
+    border: none;
 
     &:hover {
-      background-color: #B34253;
+      background-color: #957D94;
+      color:white;
     }
 
     &:focus {
-      background-color: #B34253;
+      background-color: #957D94;
+      color:white;
       border:none !important;
       outline:none !important;
     }
@@ -227,3 +231,4 @@ hr {
   color: #565a5c;
 }
 }
+
