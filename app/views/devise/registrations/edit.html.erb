@@ -11,6 +11,10 @@
 
           <%= f.input :email, required: true, autofocus: true %>
 
+          <%= f.input  :address, autofocus: true, input_html: {id: "shop_input_autocomplete_address"} %>
+
+          <%= f.input :phone_number, autofocus: true %>
+
          <%- if devise_mapping.confirmable? && resource.pending_reconfirmation? -%>
           <p>
             <%= t('.currently_waiting_confirmation_for_email', :email => resource.unconfirmed_email, :default => "Currently waiting confirmation for: %{email}") %>

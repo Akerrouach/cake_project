@@ -32,16 +32,16 @@
 
   <div class="totalCart">
     <p>Total: <span><%= cart.total %>€</span></p>
-  </div>
   <%= form_tag validate_cart_shopping_cart_path(cart), method: :post  do %>
-    <div class="form-group">
+<!--     <div class="form-group">
       <%= label_tag :delivery_choice, "Mode de livraison" %>
       <%= select_tag :delivery_choice, options_for_select([["Chez le patissier", true], ["Chez vous", false]]), class: "form-control" %>
-    </div>
+    </div> -->
     <div class="form-group">
-      <%= label_tag :delivery_date, "Date de livraison" %>
+      <%= label_tag :delivery_date, "A récupérer le" %>
       <%= text_field_tag :delivery_date, "", class: "form-control", required: true, data: { provide: "datepicker" } %>
     </div>
     <%= submit_tag "Valider", class: "buttonSend" %>
   <% end %>
+  </div>
 </div>
