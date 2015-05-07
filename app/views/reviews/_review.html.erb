@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+      <div>
+        <div class="clearfix">
+          <%= link_to user_path(review.user) do %>
+            <% if review.user.picture.exists? %>
+              <%= image_tag review.user.picture, class: "img-rating" %>
+            <% else %>
+              <%= image_tag "http://placehold.it/30x30", class: "img-rating" %>
+            <% end %>
+            <div class="profile-name">
+              <%= review.user.first_name %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-10">
+      <% case review.rating %>
+        <% when 1.0 %>
+          <%= image_tag "one_rating.png"%>
+        <% when 1.5 %>
+          <%= image_tag "one_and_half_rating.png"%>
+        <% when 2.0 %>
+          <%= image_tag "two_rating.png"%>
+        <% when 2.5 %>
+          <%= image_tag "two_and_half_rating.png"%>
+        <% when 3.0 %>
+          <%= image_tag "three_rating.png"%>
+        <% when 3.5 %>
+          <%= image_tag "three_and_half_rating.png"%>
+        <% when 4.0 %>
+          <%= image_tag "four_rating.png"%>
+        <% when 4.5 %>
+          <%= image_tag "four_and_half_rating.png"%>
+        <% when 5.0 %>
+          <%= image_tag "five_rating.png"%>
+      <% end %>
+      <br>
+      <br>
+      <p class="content"><%= review.content %></p>
+      <hr>
+    </div>
+
+  </div>
+</div>

@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
   def find_unreviewed_shopping_carts_for_shop(shop)
-    ShoppingCart.where(shop_id: shop.id, user_id: self.id, delivery_status: true, review_status: false)
+    ShoppingCart.where(shop_id: shop.id, user_id: self.id, delivery_status: nil, review_status: false)
   end
 
   def self.find_for_facebook_oauth(auth)

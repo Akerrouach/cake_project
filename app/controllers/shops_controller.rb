@@ -23,10 +23,14 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @orders = current_user.find_unreviewed_shopping_carts_for_shop(@shop).order("delivery_date DESC")
-    @can_post_review = @orders.any?
-    @shopping_cart = @orders.first
-    authorize @shop
+    if current_user != nil
+      @orders = current_user.find_unreviewed_shopping_carts_for_shop(@shop).order("delivery_date DESC")
+      @can_post_review = @orders.any?
+      @shopping_cart = @orders.first
+      authorize @shop
+    else
+      authorize @shop
+    end
   end
 
   def edit

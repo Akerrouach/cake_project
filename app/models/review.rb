@@ -3,6 +3,6 @@ class Review < ActiveRecord::Base
   belongs_to :shopping_cart
 
   def user
-    self.shopping_cart.user
+    User.find(ShoppingCart.find(self.shopping_cart_id).user_id)
   end
 end

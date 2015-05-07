@@ -6,10 +6,12 @@ class ReviewsController < ApplicationController
     @review.rating = params[:score].to_f
     shopping_carts = current_user.find_unreviewed_shopping_carts_for_shop(@shop)
     @review.shopping_cart_id = shopping_carts.last.id
-
     if @review.save
       shopping_carts.each do |shopping_cart|
       shopping_cart.update_attribute(:review_status, true)
+      end
+      respond_to do |format|
+        format.js
       end
     else
       # Gestion d'erreur
