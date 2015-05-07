@@ -216,9 +216,9 @@ a {
 }
 
 .profile-name {
-  color: #82888a;
-  font-size: 14px;
-  padding-left:13px;
+  color: #464646;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 #comments {
@@ -235,3 +235,36 @@ hr {
 }
 }
 
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+color: #f4ac00;
+font-size: 1em;
+}
+
+.rating-container {
+  img {
+    position: relative;
+    bottom: 18px;
+
+  }
+}
+
+
+#comments {
+  max-width: 500px;
+  margin: auto;
+
+  .comment  {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgb(241, 235, 235);
+
+    &:last-of-type {
+      border: none;
+    }
+  }
+}
+
+textarea#review_content{
+  margin-right: 0;
+  resize: none;
+}

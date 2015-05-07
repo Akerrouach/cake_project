@@ -106,7 +106,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+
       <div id="comments">
         <% @shop.reviews.each do |review| %>
           <%= render "reviews/review", review: review %>
@@ -115,7 +115,7 @@
           <%= render "reviews/form" %>
         <% end %>
       </div>
-    </div>
+
   </div>
 </div>
 

@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
 
@@ -39,29 +40,32 @@
               </TD>
               <TD> <%= l(cart.created_at.to_date, format: :test) %> </TD>
               <TD>
-                <% if cart.user.picture.exists? %>
-                 <%= image_tag cart.user.picture.url(:thumb), class: "img-shop-orders" %>
-                <% else %>
-                 <%= image_tag "placeholder.png", class: "img-shop-orders" %>
-                <% end %>
-                <br>
-                <%= cart.user.first_name %> <%= cart.user.last_name %>
-                <br>
-                <%= cart.user.email %>
-                <br>
-                <%= cart.user.phone_number %>
-                <br>
-                <%= cart.user.address %>
+                <%= link_to user_path(cart.user.id) do %>
+                  <% if cart.user.picture.exists? %>
+                   <%= image_tag cart.user.picture.url(:thumb), class: "img-shop-orders" %>
+                  <% else %>
+                   <%= image_tag "placeholder.png", class: "img-shop-orders" %>
+                  <% end %>
+                  <br>
+                  <%= cart.user.first_name %> <%= cart.user.last_name %>
+                  <br>
+                  <% end %>
+                  <%= cart.user.email %>
+                  <br>
+                  <%= cart.user.phone_number %>
+                  <br>
+                  <%= cart.user.address %>
               </TD>
               <TD>
-
-                <% if cart.shop.picture.exists? %>
-                 <%= image_tag cart.shop.picture.url(:thumb), class: "img-shop-orders" %>
-                <% else %>
-                 <%= image_tag "placeholder.png", class: "img-shop-orders" %>
+                <%= link_to shop_path(cart.shop.id) do %>
+                  <% if cart.shop.picture.exists? %>
+                   <%= image_tag cart.shop.picture.url(:thumb), class: "img-shop-orders" %>
+                  <% else %>
+                   <%= image_tag "placeholder.png", class: "img-shop-orders" %>
+                  <% end %>
+                  <br>
+                  <%= cart.shop.name %>
                 <% end %>
-                <br>
-                <%= cart.shop.name %>
 
               </TD>
               <TD>

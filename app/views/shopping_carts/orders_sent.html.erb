@@ -39,14 +39,14 @@
               </TD>
               <TD> <%= l(cart.created_at.to_date, format: :test) %> </TD>
               <TD>
-
-                <% if cart.shop.picture.exists? %>
-                 <%= image_tag cart.shop.picture.url(:thumb), class: "img-shop-orders" %>
-                <% else %>
-                 <%= image_tag "placeholder.png", class: "img-shop-orders" %>
+                <%= link_to shop_path(cart.shop.id) do %>
+                  <% if cart.shop.picture.exists? %>
+                   <%= image_tag cart.shop.picture.url(:thumb), class: "img-shop-orders" %>
+                  <% else %>
+                   <%= image_tag "placeholder.png", class: "img-shop-orders" %>
+                  <% end %>
+                  <%= cart.shop.name %>
                 <% end %>
-                <%= cart.shop.name %>
-
               </TD>
               <TD>
                 <ul class="list-unstyled">
@@ -66,7 +66,7 @@
                   <% end %>
                 </ul>
               </TD>
-              # <TD> <%= cart.total %> €</TD>
+              <TD> <%= cart.total %> €</TD>
               <TD> <%= l(cart.delivery_date, format: :test) %></TD>
             </TR>
           <% end %>
