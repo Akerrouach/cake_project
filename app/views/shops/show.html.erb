@@ -65,7 +65,7 @@
               <div class="animateBox">
                   <% if pastry.picture_1.exists? %>
                   <%= link_to add_to_cart_pastry_path(pastry), remote: true, method: :post do %>
-                    <%= image_tag pastry.picture_1.url(:thumb), class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url(:medium)}" %>
+                    <%= image_tag pastry.picture_1.url, class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url(:medium)}" %>
                     <%end %>
                   <% else %>
                     <%= image_tag "placeholder2.png", class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url}" %>
@@ -99,10 +99,13 @@
 
     <div class="col-xs-10 col-xs-offset-2 col-sm-2 col-sm-offset-2 col-md-2 col-md-offset-2 col-lg-2 col-lg-offset-2">
       <div class="my-cart">
+       <!--  ici et le panier -->
       </div>
     </div>
   </div>
 </div>
+
+<hr class="box-shadow-separator">
 
 <div class="container">
   <div class="row">
