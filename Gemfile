@@ -21,6 +21,7 @@ gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem "rails-assets-underscore"
 gem "coffee-script"
 gem "pry"
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'activeadmin', github: 'activeadmin'
 
