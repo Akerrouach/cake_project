@@ -9,7 +9,7 @@
               <% if pastry.picture_1.exists? %>
                 <%= image_tag pastry.picture_1.url, class: "pastries-img" %>
                 <% else %>
-                  <%= image_tag "http://placehold.it/218x163", class: "pastries-img"%>
+                  <%= image_tag "placeholder2.png", class: "pastries-img"%>
                 <% end %>
               <% end %>
               <div class="pastry-details">
@@ -17,16 +17,12 @@
                 <ul class="list-inline list-unstyled">
                   <li class="shop-name"><%=pastry.shop.name%></li>
                     <% if Geocoder::Calculations.distance_between([pastry.latitude, pastry.longitude], @location, :units => :km).nan? == true %>
-                        <li class="distance"><%= "| "%><%= "- Km"%></li>
+                        <li class="distance"><%= "à "%><%= "- Km"%></li>
                     <% else %>
-                      <li class="distance"><%= "| "%><%= (Geocoder::Calculations.distance_between([pastry.latitude, pastry.longitude], @location, :units => :km)).round(1)%><%= "Km"%></li>
+                      <li class="distance"><%= " à "%><%= (Geocoder::Calculations.distance_between([pastry.latitude, pastry.longitude], @location, :units => :km)).round(1)%><%= "Km"%></li>
                     <% end %>
                 </ul>
-                <%= link_to shop_path(pastry.shop) do %>
-                  <div class="icon-right-container">
-                    <i class="fa fa-angle-right icon-right"></i>
-                  </div>
-                <% end %>
+
               </div>
           </div>
           </div>

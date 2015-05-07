@@ -5,7 +5,7 @@
         <% if current_user.picture.exists? %>
             <%= image_tag @user.picture.url(:medium), class: "profil-img" %>
           <% else %>
-            <%= image_tag "http://placehold.it/300x300", class: "profil-img"%>
+            <%= image_tag "placeholder.png", class: "profil-img"%>
         <% end %>
       </div>
 

@@ -33,7 +33,7 @@
                  <%= image_tag current_user.picture.url(:thumb), class: "img-avatar" %>
                  <%= current_user.first_name %> <%= current_user.last_name %> <span class="caret"></span>
               <% else %>
-                 <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
+                 <%= image_tag "placeholder.png", class: "img-avatar" %>
                  Profile <span class="caret"></span>
               <% end %>
             <% end %>
