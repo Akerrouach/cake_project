@@ -1,0 +1,87 @@
+.panel {
+  border: 1px solid #dce0e0;
+  background-color: #fff;
+  border-radius: 0;
+  margin-top:20px;
+
+  th {
+    border-top: 0;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  td {
+    font-size: 14px;
+  }
+
+}
+
+.panel-header {
+
+  color: #565a5c;
+  font-size: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dce0e0;
+  background-color: #edefed;
+
+}
+
+.label {
+  font-weight: bold;
+}
+
+.label-success {
+  color: #3fb34f;
+  font-size:15px;
+  background:none;
+}
+
+.label-danger {
+  color: #FF7E82;
+  font-size:15px;
+  background:none;
+}
+
+.label-pending {
+  color: #B5D8DC;
+  font-size:15px;
+  background:none;
+}
+
+.img-shop-orders {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  height:50px;
+  width:50px;
+}
+
+.btn-decline {
+
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #ff5a5f;
+  color: #fff;
+  padding: 7px 21px;
+  font-size: 14px;
+  text-decoration: none;
+
+&:hover {
+      text-decoration: none;
+    }
+
+}
+
+.btn-accept {
+
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #3fb34f;
+  color: #fff;
+  padding: 7px 21px;
+  font-size: 14px;
+  text-decoration: none;
+
+
+
+}

@@ -1,66 +1,121 @@
 <div class="container">
-    <TABLE class="table table-striped table-hover">
-    <CAPTION> Récapitulatif de mes commandes </CAPTION>
-    <TR>
-     <TH> Date </TH>
-     <TH> Acheteur </TH>
-     <TH> Boutique </TH>
-     <TH> Produit </TH>
-     <TH> Quantité </TH>
-     <TH> Tarif </TH>
-     <TH> Date de livraison </TH>
-     <TH> Mode de livraison </TH>
-     <TH> Statut </TH>
-    </TR>
-    <% @shopping_carts.each do |cart| %>
-      <TR>
-        <TD> <%= l(cart.created_at.to_date, format: :test) %> </TD>
-        <TD> <%= cart.user.first_name %> <%= cart.user.last_name %> </TD>
-        <TD> <%= cart.shop.name %></TD>
-        <TD>
-          <ul class="list-unstyled">
-            <% cart.shopping_cart_items.each do |cart_item| %>
-              <li>
-                <%= cart_item.item.title %>
-              </li>
-            <% end %>
-          </ul>
-        </TD>
-        <TD>
-          <ul class="list-unstyled">
-            <% cart.shopping_cart_items.each do |cart_item| %>
-              <li>
-                <%= cart_item.quantity %>
-              </li>
-            <% end %>
-          </ul>
-        </TD>
-        <TD> <%= cart.total %> €</TD>
-        <TD> <%= l(cart.delivery_date, format: :test) %></TD>
-        <TD> <% if cart.delivery_choice = true %>
-              <%= "Chez le patissier" %>
-              <% else %>
-              <%= "Chez l'acheteur" %>
+  <div class="row">
+
+    <div class="col-xs-12">
+      <div class="panel">
+        <div class="panel-header">
+          <p class="text-center">Mes commandes reçues</p>
+        </div>
+        <table class="table panel-body row-space-1">
+          <tbody>
+          <TR>
+            <TH> Statut </TH>
+            <TH> Date </TH>
+            <TH> Acheteur </TH>
+            <TH> Boutique </TH>
+            <TH> Produit </TH>
+            <TH> Quantité </TH>
+            <TH> Tarif </TH>
+            <TH> Date de livraison </TH>
+          </TR>
+
+          <% @shopping_carts.each do |cart| %>
+            <TR>
+              <TD>
+                <% case cart.accepted %>
+                  <% when "acceptée" %>
+                    <p class="label-success">
+                      <%= "Acceptée" %>
+                    </p>
+                  <% when "en attente" %>
+                    <p class="label-pending">
+                      <%= "En attente" %>
+                    </p>
+                  <% when "refusée" %>
+                    <p class="label-danger">
+                      <%= "Refusée" %>
+                    </p>
+                <% end %>
+              </TD>
+              <TD> <%= l(cart.created_at.to_date, format: :test) %> </TD>
+              <TD>
+                <% if cart.user.picture.exists? %>
+                 <%= image_tag cart.user.picture.url(:thumb), class: "img-shop-orders" %>
+                <% else %>
+                 <%= image_tag "placeholder.png", class: "img-shop-orders" %>
+                <% end %>
+                <br>
+                <%= cart.user.first_name %> <%= cart.user.last_name %>
+                <br>
+                <%= cart.user.email %>
+                <br>
+                <%= cart.user.phone_number %>
+                <br>
+                <%= cart.user.address %>
+              </TD>
+              <TD>
+
+                <% if cart.shop.picture.exists? %>
+                 <%= image_tag cart.shop.picture.url(:thumb), class: "img-shop-orders" %>
+                <% else %>
+                 <%= image_tag "placeholder.png", class: "img-shop-orders" %>
+                <% end %>
+                <br>
+                <%= cart.shop.name %>
+
+              </TD>
+              <TD>
+                <ul class="list-unstyled">
+                  <% cart.shopping_cart_items.each do |cart_item| %>
+                    <li>
+                      <%= cart_item.item.title %>
+                    </li>
+                  <% end %>
+                </ul>
+              </TD>
+              <TD>
+                <ul class="list-unstyled">
+                  <% cart.shopping_cart_items.each do |cart_item| %>
+                    <li>
+                      <%= cart_item.quantity %>
+                    </li>
+                  <% end %>
+                </ul>
+              </TD>
+              <TD> <%= cart.total %> €</TD>
+              <TD> <%= l(cart.delivery_date, format: :test) %></TD>
+              <TD>
+                <% if cart.accepted == "en attente" %>
+                  <ul class="list-unstyled">
+                    <li>
+                      <%= link_to accept_cart_shopping_cart_path(cart), method: :post, class: "link" do %>
+                        <p class="btn-accept">Accepter</p>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to decline_cart_shopping_cart_path(cart), method: :post, class: "link" do %>
+                        <p class="btn-decline">Refuser</p>
+                      <% end %>
+                    </li>
+                  </ul>
               <% end %>
-        </TD>
-        <TD> <%= cart.accepted %> </TD>
-        <TD>
-            <% if cart.accepted == "en attente" %>
-              <ul class="list-unstyled">
-                <li>
-                  <%= link_to accept_cart_shopping_cart_path(cart), method: :post do %>
-                    <p class="btn btn-success">Accepter</p>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to decline_cart_shopping_cart_path(cart), method: :post do %>
-                    <p class="btn btn-danger">Décliner</p>
-                  <% end %>
-                </li>
-              </ul>
+              </TD>
+            </TR>
           <% end %>
-        </TD>
-      </TR>
-    <% end %>
-  </TABLE>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+

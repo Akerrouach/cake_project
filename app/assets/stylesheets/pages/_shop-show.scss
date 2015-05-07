@@ -178,6 +178,9 @@ box-shadow: 0px 1px 4px #E4E4E4;
     font-size: 13px;
     color:black;
     text-decoration:none;
+    &:hover {
+      text-decoration:none;
+    }
   }
 
 .header-pastries {
