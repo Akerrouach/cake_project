@@ -68,6 +68,8 @@
   background-color: rgba(229, 228, 228, 0.41);
   padding-bottom: 50px;
   padding-top: 50px;
+  padding-left: 5px;
+  paddin-right: 5px;
   border-bottom: 1px rgba(200, 191, 191, 0.23) solid;;
   h2 {
     font-size:30px;
@@ -82,10 +84,9 @@
 
   }
   img {
-    height: 70px;
-    width: 70px;
-    margin-left: 89px;
-    margin-top: 40px;
+   width: 100%;
+   max-width: 70px;
+   padding-top: 32px;
   }
 }
 
