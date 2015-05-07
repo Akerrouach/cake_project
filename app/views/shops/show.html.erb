@@ -7,7 +7,7 @@
           <% if @shop.picture.exists? %>
             <%= image_tag @shop.picture.url(:medium), class: "img-responsive shop-img2" %>
           <% else %>
-            <%= image_tag "http://placehold.it/300x300", class: "img-responsive shop-img2"%>
+            <%= image_tag "test2.png", class: "img-responsive shop-img2"%>
           <% end %>
         </div>
           <h1>
@@ -68,7 +68,7 @@
                     <%= image_tag pastry.picture_1.url(:thumb), class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url(:small)}" %>
                     <%end %>
                   <% else %>
-                    <%= image_tag "http://placehold.it/100x100", class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url}" %>
+                    <%= image_tag "placeholder2.png", class: "pastry-img popover-img", :'data-content' => "#{image_tag pastry.picture_1.url}" %>
                   <% end %>
                   <% if pastry.shop.user == current_user %>
                     <div class="buttons">

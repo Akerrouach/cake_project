@@ -1,19 +1,23 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h2><%= t('.sign_up', default: "Sign up") %></h2>
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div id="form-card">
+          <%= render "devise/shared/facebook" %>
+          <p> ou  </p>
 
-        <%= f.input :first_name, placeholder: 'Prénom', required: true %>
-          <%= f.input :last_name, placeholder: 'Nom', required: true %>
-        <%= f.input :email, placeholder: 'adresse@email.com', required: true, autofocus: true %>
-        <%= f.input :password, placeholder: 'mot de passe', required: true %>
-        <%= f.button :submit, t('.sign_up', default: "Inscription"), class: "btn btn-primary" %>
-      <% end %>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
 
-      <%= render "devise/shared/links" %>
+            <%= f.input :first_name, placeholder: 'Prénom', required: true, label: false %>
+              <%= f.input :last_name, placeholder: 'Nom', required: true, label: false %>
+            <%= f.input :email, placeholder: 'adresse@email.com', required: true, autofocus: true, label: false %>
+            <%= f.input :password, placeholder: 'mot de passe', required: true, label: false %>
+            <%= f.button :submit, t('.sign_up', default: "Inscription"), class: "btn btn-primary" %>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
