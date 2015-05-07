@@ -48,18 +48,24 @@
                   <%= cart.shop.name %>
                 <% end %>
               </TD>
+              <TD>
+                <ul class="list-unstyled">
+                <% cart.shopping_cart_items.each do |cart_item| %>
+                  <li>
+                    <%= Pastry.find(cart_item.item_id).title %>
+                  </li>
+                <% end %>
+                </ul>
+              </TD>
+              <TD>
+                <ul class="list-unstyled">
                   <% cart.shopping_cart_items.each do |cart_item| %>
-                <TD>
-                    <li class="list-unstyled">
-                      <%= Pastry.find(cart_item.item_id).title %>
-                    </li>
-                </TD>
-                <TD>
-                    <li class="list-unstyled">
+                    <li>
                       <%= cart_item.quantity %>
                     </li>
-                </TD>
                   <% end %>
+                </ul>
+              </TD>
               <TD> <%= cart.total %> €</TD>
               <TD> <%= l(cart.delivery_date, format: :test) %></TD>
             </TR>
