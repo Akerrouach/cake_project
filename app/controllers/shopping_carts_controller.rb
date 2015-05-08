@@ -13,7 +13,7 @@ class ShoppingCartsController < ApplicationController
     current_user.shops.each do |shop|
       @shop_id << shop.id
     end
-    @shopping_carts = ShoppingCart.where(shop_id: @shop_id).order("id DESC")
+    @shopping_carts = ShoppingCart.where(shop_id: @shop_id).order("id DESC").select { |cart| cart.sent }
   end
 
   def validate
@@ -29,6 +29,7 @@ class ShoppingCartsController < ApplicationController
       @cart.accepted = "en attente"
       authorize @cart
       if @cart.save
+        raise ""
         session[:shopping_cart_id] = nil
         @cart.send_order_email
         redirect_to orders_sent_shopping_carts_path
