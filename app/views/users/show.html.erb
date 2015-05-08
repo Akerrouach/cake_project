@@ -1,31 +1,41 @@
-<div class="user-profil">
+<div id="profil-show">
   <div class="container">
     <div class="row">
-      <div class="col-xs-3">
-        <% if current_user.picture.exists? %>
-            <%= image_tag @user.picture.url(:medium), class: "profil-img" %>
-          <% else %>
-            <%= image_tag "placeholder.png", class: "profil-img"%>
-        <% end %>
-      </div>
-
-      <div class="col-xs-4">
-        <h2>
-          <% if @user.first_name != nil %>
-            <%= @user.first_name %><%= "," %>
-            <% else  %>
-            <%= "" %>
-          <% end %>
-        </h2>
-          <p><%= link_to "Mettre à jour votre profil", edit_user_registration_path(current_user), class: "link"%></p>
-            <br>
-          <div class= "about">
-              <h3>A propos</h3>
-            <p><%= @user.description %></p>
+      <div class="col-xs-12 col-md-6">
+        <div class="profil-card">
+          <div class="text-center">
+            <div>
+            <% if current_user.picture.exists? %>
+                <%= image_tag @user.picture.url(:medium), class: "shop-img2" %>
+              <% else %>
+                <%= image_tag "placeholder.png", class: "profil-img"%>
+            <% end %>
+            </div>
+            <h1>
+              <% if @user.first_name != nil %>
+                <%= @user.first_name %> <%= @user.last_name %>
+                <% else  %>
+                <%= "" %>
+              <% end %>
+            </h1>
+            <p><%= link_to "Mettre à jour votre profil", edit_user_registration_path(current_user), class: "link"%></p>
           </div>
-          <br>
-            <p><%= link_to "Voir mes boutiques", shops_path, class: "link"%></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+          <div class="profil-card">
+            <div class="text-left">
+              <div>
+                <p><strong>A propos : </strong> </p>
+                <p> <%= @user.description %></p>
+                <p> <strong>Email :</strong> <%= @user.email %></p>
+                <p> <strong>Adresse :</strong> <%= @user.address %></p>
+                <p> <strong>Téléphone :</strong> <%= @user.phone_number %></p>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>
 </div>
+
