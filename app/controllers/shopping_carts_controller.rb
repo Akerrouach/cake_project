@@ -14,7 +14,6 @@ class ShoppingCartsController < ApplicationController
       @shop_id << shop.id
     end
     @shopping_carts = ShoppingCart.where(shop_id: @shop_id).order("id DESC")
-    binding.pry
   end
 
   def validate
