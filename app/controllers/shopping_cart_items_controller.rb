@@ -25,7 +25,7 @@ class ShoppingCartItemsController < ApplicationController
   end
 
   def find_cart
-    if session[:shopping_cart_id]
+    if session[:shopping_cart_id] != nil
       if current_user == nil
         if ShoppingCart.where(["shop_id = ? and user_id IS NULL", @pastry.shop]).empty?
           @cart = ShoppingCart.new

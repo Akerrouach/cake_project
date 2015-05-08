@@ -15,8 +15,6 @@ class ShoppingCart < ActiveRecord::Base
     if @delivery_date != nil
       if Date.today() == @delivery_date + 1
         @delivery_status = true
-      else
-        @delivery_status = false
       end
     end
   end
