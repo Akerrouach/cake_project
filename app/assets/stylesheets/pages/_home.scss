@@ -42,25 +42,32 @@
 }
 
 .pastry-card {
-  width: 300px;
-  margin: 0 auto;
+  width: 280px;
+  margin: auto;
   color: white;
-  border-radius:50%;
+  box-shadow: 1px 1px 1px rgb(221, 220, 220);
+  border-radius: 5px;
+  padding-bottom: 1px;
+  margin-bottom: 15px;
+  background: rgba(243, 243, 243, 0.33);
 
   &:hover {
     transition: all 0.2s ease;
     opacity: 1;
     transform: scale(1.01);
   }
+
+  h3  {
+    color: rgb(231, 65, 60);
+    margin-top: 0px;
+    font-size: 28px;
+    font-family: 'Cookie', cursive;
+  }
 }
 
-#text-card-padded{
-  margin: 20px;
-}
 
 .title-padded {
-  padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 #presentation {
@@ -75,7 +82,7 @@
   }
   h3 {
     font-size:18px;
-    color: rgb(231, 65, 60);;
+    color: rgb(231, 65, 60);
   }
   p {
     font-size:14px;
