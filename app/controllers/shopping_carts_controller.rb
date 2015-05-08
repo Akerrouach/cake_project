@@ -4,35 +4,40 @@ class ShoppingCartsController < ApplicationController
 
   def orders_sent
     skip_authorization
-    @shopping_carts = current_user.shopping_carts.select { |cart| cart.sent }
-    @shopping_carts = @shopping_carts.sort {|a,b| a[7] <=> b[7]}
+    @shopping_carts = current_user.shopping_carts.order("id DESC").select { |cart| cart.sent }
   end
 
   def orders_received
     skip_authorization
-    @shopping_carts = []
-    ShoppingCart.all.each do |cart|
-      if (Shop.find(cart.shop_id)).user_id == current_user.id
-        @shopping_carts << cart if cart.sent
-      end
+    @shop_id = []
+    current_user.shops.each do |shop|
+      @shop_id << shop.id
     end
-    @shopping_carts = @shopping_carts.sort {|a,b| a[7] <=> b[7]}
+    @shopping_carts = ShoppingCart.where(shop_id: @shop_id).order("id DESC")
+    binding.pry
   end
 
   def validate
-    @cart.delivery_choice = params[:delivery_choice]
-    @cart.delivery_date = params[:delivery_date]
-    p @cart, params[:delivery_date]
-    @cart.sent = true
-    @cart.accepted = "en attente"
-    authorize @cart
-    if @cart.save
-      session[:shopping_cart_id] = nil
-      @cart.send_order_email
-      redirect_to orders_sent_shopping_carts_path
-    else
+    if @cart.shopping_cart_items.empty?
+      flash[:alert] = "Vous n'avez ajouté aucun produit dans votre panier"
       @shop = @cart.shop
+      skip_authorization
       render 'shops/show'
+    else
+      @cart.total_price = @cart.total
+      @cart.delivery_date = params[:delivery_date]
+      @cart.sent = true
+      @cart.accepted = "en attente"
+      authorize @cart
+      if @cart.save
+        session[:shopping_cart_id] = nil
+        @cart.send_order_email
+        redirect_to orders_sent_shopping_carts_path
+      else
+        @shop = @cart.shop
+        skip_authorization
+        render 'shops/show'
+      end
     end
   end
 
@@ -67,7 +72,7 @@ private
   end
 
   def shopping_cart_params
-    params.require(:shopping_cart).permit(:delivery_choice, :delivery_date)
+    params.require(:shopping_cart).permit(:delivery_date)
   end
 
 

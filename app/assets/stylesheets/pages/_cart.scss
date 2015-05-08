@@ -1,4 +1,7 @@
 .my-cart {
+
+  position:fixed;
+
   p {
   background: #191919;
   border: 1px solid #191919;
@@ -8,8 +11,24 @@
   font: lighter 18px Helvetica;
   height:40px;
   width:220px;
-  margin-bottom: -22px;
+  margin-bottom: -23px;
   position: relative;
+  }
+
+  .mon-panier {
+
+  p {
+  background: #191919;
+  border: 1px solid #191919;
+  color: #fff;
+  height: 18px;
+  padding: 10px;
+  font: lighter 18px Helvetica;
+  height:40px;
+  width:220px;
+  margin-bottom: 0px;
+  position: relative;
+  }
   }
 
   .number-items {
@@ -84,9 +103,10 @@
 
     .form-group   {
     margin-bottom: 25px;
-    margin-left: 33px;
+    margin-left: 2px;
     text-align: center;
     }
+
   }
 
   .buttonSend {
@@ -101,7 +121,7 @@
     margin-top: -11px;
 
   }
-}
+
 
 .quantityButtons {
   position: relative;
@@ -109,4 +129,6 @@
   font-size: 15px;
   line-height: 17px;
   text-decoration:none;
+}
+
 }

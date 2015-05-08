@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :find_cart, only: [:show]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
@@ -61,6 +62,42 @@ class ShopsController < ApplicationController
 
   def shop_params
     params.require(:shop).permit(:name, :description, :preparation_address, :picture, :delivery_date)
+  end
+
+  def find_cart
+    if session[:shopping_cart_id]
+      if current_user == nil
+        if ShoppingCart.where(["shop_id = ? and user_id IS NULL", @shop]).empty?
+          @cart = ShoppingCart.new
+          @cart.shop = @shop
+          @cart.save
+        else
+          @cart = ShoppingCart.where(["shop_id = ? and user_id IS NULL", @shop])[0]
+        end
+      else
+        if ShoppingCart.where(["user_id = ? and shop_id = ?", current_user, @shop]).empty?
+          @cart = ShoppingCart.new
+          @cart.user = current_user
+          @cart.shop = @shop
+          @cart.save
+        else
+          @cart = ShoppingCart.where(["user_id = ? and shop_id = ?", current_user, @shop])[0]
+        end
+      end
+    else
+      if current_user == nil
+        @cart = ShoppingCart.new
+        @cart.shop = @shop
+        @cart.save
+        session[:shopping_cart_id] = @cart.id
+      else
+        @cart = ShoppingCart.new
+        @cart.user = current_user
+        @cart.shop = @shop
+        @cart.save
+        session[:shopping_cart_id] = @cart.id
+      end
+    end
   end
 
 end
